@@ -1,9 +1,20 @@
-<div>
-    <form [formGroup]= "premium2Form">
-        <input type="text" placeholder="Bike Model" formControlName="bike_Model">
-        <br>
-        <input type="text" placeholder="Bike Age" formControlName="bike_Age">
-        <br>
-        <button type="submit" (click)="calculatepremium()">Calculate Premium</button>
-    </form>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="h2">Premium Calculator for 2 Wheeler</h2>
+                <hr>
+                <form [formGroup]= "premium2Form" class="form-group">
+                    <input type="text" placeholder="Bike Model" class="form-control"
+                     formControlName="bike_Model">
+                    <br>
+                    <input type="text" placeholder="Bike Age" class="form-control"
+                     formControlName="bike_Age">
+                    <br>
+                    <button type="submit" (click)="calculatepremium()"
+                    class="btn btn-primary" >Calculate Premium</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

@@ -10,25 +10,21 @@ export class Premiumfor2wheelerComponent implements OnInit {
 
   constructor() { }
   premium2Form = new FormGroup({
-    bike_Model : new FormControl(),
-    bike_Age : new FormControl()
+    bike_Model: new FormControl(),
+    bike_Age: new FormControl()
   })
-  
+
   ngOnInit(): void {
   }
-  calculatepremium()
-  {
-    console.log("Yo");
-    
+  calculatepremium() {
+
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.premium2Form.value, null, 4));
   }
-  get bike_Model()
-  {
+  get bike_Model() {
     return this.premium2Form.get("bike_Model");
   }
-  get bike_Age()
-  {
+  get bike_Age() {
     return this.premium2Form.get("bike_Age");
   }
-  
+
 }

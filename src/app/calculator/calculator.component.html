@@ -1,16 +1,25 @@
-
-<div class="body">
-    <form [formGroup] = "calculateForm" class="form">
-        <input type="button" value="Two Wheeler" id="twowheeler" 
-        formControlName="twowheeler"  #twowheeler  (click)=buttonclick()/>
-        &nbsp;
-        <input type="button" id="fourwheeler"
-        formControlName="fourwheeler" #fourwheeler class="fourwheelerbutton" (click)=buttonclick()>
-        <br>
-        <br>
-        <div >
-            <button type="submit" class="submitbutton" [disabled] = "!status">
-                Submit</button>
+<div class="jumbotron" style="text-align: center;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="display-2">Premium Calculator</h2>
+                <hr>
+                <form [formGroup]="calculateForm" class="form">
+                    <input type="button" value="Two Wheeler" id="twowheeler" 
+                    formControlName="twowheeler" #twowheeler class="btn btn-primary btn-lg "
+                        (click)=buttonclick() />
+                    &nbsp;&nbsp;
+                    <input type="button" id="fourwheeler" formControlName="fourwheeler" 
+                    #fourwheeler class="btn btn-primary btn-lg" (click)=buttonclick()>
+                    <br>
+                    <br>
+                    <div>
+                        <button type="submit" class="submitbutton" class="btn btn-success"
+                        [disabled]="!status">
+                            Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </form>
+    </div>
 </div>

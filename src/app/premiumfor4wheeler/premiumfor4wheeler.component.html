@@ -1,9 +1,17 @@
-<div>
-    <form [formGroup]= "premium4Form">
-        <input type="text" placeholder="Car Model" formControlName="car_Model">
-        <br>
-        <input type="text" placeholder="Car Age" formControlName="car_Age">
-        <br>
-        <button type="submit" (click)="calculatepremium()">Calculate Premium</button>
-    </form>
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2 class="h2">Premium Calculator for 4 Wheeler</h2>
+                <hr>
+                <form [formGroup]="premium4Form" class="form-group">
+                    <input type="text" placeholder="Car Model" class="form-control" formControlName="car_Model">
+                    <br>
+                    <input type="text" placeholder="Car Age" class="form-control" formControlName="car_Age">
+                    <br>
+                    <button type="submit" (click)="calculatepremium()" class="btn btn-primary">Calculate Premium</button>
+                </form>
+            </div>  
+        </div>
+    </div>
 </div>

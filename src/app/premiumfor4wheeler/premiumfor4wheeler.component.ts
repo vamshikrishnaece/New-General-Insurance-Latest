@@ -15,6 +15,11 @@ export class Premiumfor4wheelerComponent implements OnInit {
   })
   ngOnInit(): void {
   }
+  calculatepremium()
+  {
+    
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.premium4Form.value, null, 4));
+  }
 
   get car_Model()
   {
