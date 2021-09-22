@@ -1,0 +1,16 @@
+
+<div class="body">
+    <form [formGroup] = "calculateForm" class="form">
+        <input type="button" value="Two Wheeler" id="twowheeler" 
+        formControlName="twowheeler"  #twowheeler  (click)=buttonclick()/>
+        &nbsp;
+        <input type="button" id="fourwheeler"
+        formControlName="fourwheeler" #fourwheeler class="fourwheelerbutton" (click)=buttonclick()>
+        <br>
+        <br>
+        <div >
+            <button type="submit" class="submitbutton" [disabled] = "!status">
+                Submit</button>
+        </div>
+    </form>
+</div>
