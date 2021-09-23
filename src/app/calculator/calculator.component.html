@@ -3,20 +3,40 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <h2 class="display-2">Premium Calculator</h2>
-                <hr>
+                <br>
                 <form [formGroup]="calculateForm" class="form">
-                    <input type="button" value="Two Wheeler" id="twowheeler" 
-                    formControlName="twowheeler" #twowheeler class="btn btn-primary btn-lg "
-                        (click)=buttonclick() />
+                    <input type="button" value="Two Wheeler" id="twowheeler" formControlName="twowheeler" #twowheeler
+                        class="btn btn-primary btn-lg " (click)=buttonclick() (click)="ShowDiv('2wheeler')" />
                     &nbsp;&nbsp;
-                    <input type="button" id="fourwheeler" formControlName="fourwheeler" 
-                    #fourwheeler class="btn btn-primary btn-lg" (click)=buttonclick()>
+                    <input type="button" id="fourwheeler" formControlName="fourwheeler" #fourwheeler
+                        class="btn btn-primary btn-lg" (click)="ShowDiv('4wheeler')">
                     <br>
                     <br>
-                    <div>
-                        <button type="submit" class="submitbutton" class="btn btn-success"
-                        [disabled]="!status">
-                            Submit</button>
+                    <hr>
+                    <div *ngIf="currDiv == '2wheeler'">
+                        <h2 class="display-5">Premium Calculator for 2 Wheeler</h2>
+                        <br>
+                        <form [formGroup]="premium2Form" class="form-group">
+                            <input type="text" placeholder="Bike Model" class="form-control"
+                                formControlName="bike_Model">
+                            <br>
+                            <input type="text" placeholder="Bike Age" class="form-control" formControlName="bike_Age">
+                            <br>
+                            <button type="submit" (click)="alert2wheeler()" class="btn btn-primary">Calculate
+                                Premium</button>
+                        </form>
+                    </div>
+                    <div *ngIf="currDiv == '4wheeler'">
+                        <h2 class="h2">Premium Calculator for 4 Wheeler</h2>
+                        <br>
+                        <form [formGroup]="premium4Form" class="form-group">
+                            <input type="text" placeholder="Car Model" class="form-control" formControlName="car_Model">
+                            <br>
+                            <input type="text" placeholder="Car Age" class="form-control" formControlName="car_Age">
+                            <br>
+                            <button type="submit" (click)="alert4wheeler()" class="btn btn-primary">Calculate
+                                Premium</button>
+                        </form>
                     </div>
                 </form>
             </div>
