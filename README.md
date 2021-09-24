@@ -1,7 +1,6 @@
-#
-npm install
-npm install NgxCaptchaModule
-nxg serve -o
+#npm install
+#npm install NgxCaptchaModule
+#nxg serve -o
 
 # ProjectGladiator
 
