@@ -6,7 +6,7 @@
                 <br>
                 <form [formGroup]="calculateForm" class="form">
                     <input type="button" value="Two Wheeler" id="twowheeler" formControlName="twowheeler" #twowheeler
-                        class="btn btn-primary btn-lg " (click)=buttonclick() (click)="ShowDiv('2wheeler')" />
+                        class="btn btn-primary btn-lg " (click)="ShowDiv('2wheeler')" />
                     &nbsp;&nbsp;
                     <input type="button" id="fourwheeler" formControlName="fourwheeler" #fourwheeler
                         class="btn btn-primary btn-lg" (click)="ShowDiv('4wheeler')">
@@ -39,6 +39,7 @@
                         </form>
                     </div>
                 </form>
+                <a routerLink=""><button class="btn btn-success">Back Home</button></a><br>
             </div>
         </div>
     </div>

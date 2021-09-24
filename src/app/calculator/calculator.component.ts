@@ -30,7 +30,6 @@ export class CalculatorComponent implements OnInit {
     car_Age: new FormControl()
   })
 
-  status: boolean = false;
   ngOnInit(): void {
   }
 
@@ -39,9 +38,6 @@ export class CalculatorComponent implements OnInit {
   }
   get bike_Age() {
     return this.premium2Form.get("bike_Age");
-  }
-  buttonclick() {
-    this.status = true;
   }
 
 

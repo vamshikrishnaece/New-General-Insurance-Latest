@@ -9,6 +9,7 @@ import { UserpolicydetailsComponent } from './userpolicydetails/userpolicydetail
 import { UserpoliciesComponent } from './userpolicies/userpolicies.component';
 import { ClaimpageComponent } from './claimpage/claimpage.component';
 import { ClaimhistoryComponent } from './claimhistory/claimhistory.component';
+import { PolicypageComponent } from './policypage/policypage.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ClaimhistoryComponent } from './claimhistory/claimhistory.component';
     UserpolicydetailsComponent,
     UserpoliciesComponent,
     ClaimpageComponent,
-    ClaimhistoryComponent
+    ClaimhistoryComponent,
+    PolicypageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,95 @@
+<div class="jumbotron" style="text-align: center;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2>Buy Insurance</h2>
+                <div>
+                    <button type="button" id="twowheeler" formControlName="twowheeler" #twowheeler
+                        class="btn btn-primary btn-lg " (click)="ShowDiv('2wheeler')">
+                        Two Wheeler</button>
+                    &nbsp;&nbsp;
+                    <button type="button" id="fourwheeler" formControlName="fourwheeler" #fourwheeler
+                        class="btn btn-primary btn-lg" (click)="ShowDiv('4wheeler')">
+                        Four Wheeler</button>
+                </div>
+                <hr>
+                <form class="form">
+                    <div *ngIf="currDiv=='2wheeler'" style="text-align: left;">
+                        <label for="2manu">Enter Bike Manufacturer</label>
+                        <input type="text" formControlName="2manu" class="form-control"
+                            placeholder="Enter Bike manufacturer:" id="2manu"><br />
+
+
+                        <label for="bikemodel">Enter Bike Model</label>
+                        <input type="text" formControlName="bikemodel" class="form-control"
+                            placeholder="Enter Bike model:" id="bikemodel"><br />
+
+
+                        <label for="license">Enter Driving License</label>
+                        <input type="text" formControlName="license" id="license" placeholder="Enter Driving License"
+                            class="form-control"><br />
+
+
+                        <label for="purchasedate">Enter Purchase Date</label>
+                        <input type="date" formControlName="purchasedate" id="purchasedate"
+                            placeholder="Enter Purchase Date" class="form-control"><br />
+
+
+                        <label for="regnum">Enter Registration Number</label>
+                        <input type="text" formControlName="regnum" id="regnum" placeholder="Enter Registration Number:"
+                            class="form-control"><br />
+
+
+                        <label for="engnumber">Enter Engine Number</label>
+                        <input type="text" formControlName="engnumber" id="engnumber" placeholder="Enter Engine Number"
+                            class="form-control"><br />
+
+
+                        <label for="chassnumber">Enter Chassis Number</label>
+                        <input type="text" formControlName="chassnumber" id="chassnumber"
+                            placeholder="Enter Chassis Number" class="form-control"><br>
+                        <button type="submit" class="btn btn-primary" id="button">Submit</button><br><br>
+                    </div>
+
+                    <div *ngIf="currDiv=='4wheeler'" style="text-align: left;">
+                        <label for="4manu">Enter Car Manufacturer</label>
+                        <input type="text" formControlName="4manu" id="4manu" placeholder="Enter Car manufacturer"
+                            class="form-control"><br />
+
+
+                        <label for="carmodel">Enter Car Model</label>
+                        <input type="text" formControlName="carmodel" id="carmodel" placeholder="Enter Car model"
+                            class="form-control"><br />
+
+
+                        <label for="license">Enter Driving License</label>
+                        <input type="text" formControlName="license" id="license" placeholder="Enter Driving License"
+                            class="form-control"><br />
+
+
+                        <label for="purchasedate">Enter Purchase Date</label>
+                        <input type="date" formControlName="purchasedate" id="purchasedate"
+                            placeholder="Enter Purchase Date" class="form-control"><br />
+
+
+                        <label for="regnum">Enter Registration Number</label>
+                        <input type="text" formControlName="regnum" id="regnum" placeholder="Enter Registration Number:"
+                            class="form-control"><br />
+
+
+                        <label for="engnumber">Enter Engine Number</label>
+                        <input type="text" formControlName="engnumber" id="engnumber" placeholder="Enter Engine Number"
+                            class="form-control"><br />
+
+
+                        <label for="chassnumber">Enter Chassis Number</label>
+                        <input type="text" formControlName="chassnumber" id="chassnumber"
+                            placeholder="Enter Chassis Number" class="form-control"><br />
+                        <button type="submit" class="btn btn-primary" id="button">Submit</button><br><br>
+                    </div>
+                </form>
+                <a routerLink=""><button class="btn btn-success">Back Home</button></a><br>
+            </div>
+        </div>
+    </div>
+</div>
