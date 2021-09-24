@@ -7,7 +7,7 @@
 
 
                 <h5 class="display-2 text-center">Buy Insureance</h5>
-               
+                <hr>
                 <div class="card-body">
                     <form [formGroup]="buyInsuranceForm" (ngSubmit)="onSubmit()">
 
@@ -70,8 +70,6 @@
                         <div *ngIf="submitted && f.chassisNo.errors" class="invalid-feedback">
                             <div *ngIf="f.chassisNo.errors.required">Registration Number is required</div>
                         </div>
-
-
 
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <div class="text-center">

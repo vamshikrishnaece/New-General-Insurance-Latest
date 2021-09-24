@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <h2 class="display-2">Premium Calculator</h2>
+                <h2 class="display-2 text-center">Premium Calculator</h2>
                 <br>
                 <form [formGroup]="calculateForm" class="form">
                     <input type="button" value="Two Wheeler" id="twowheeler" formControlName="twowheeler" #twowheeler
@@ -14,7 +14,7 @@
                     <br>
                     <hr>
                     <div *ngIf="currDiv == '2wheeler'">
-                        <h2 class="display-5">Premium Calculator for 2 Wheeler</h2>
+                        <h2 class="display-5 text-center">Premium Calculator for 2 Wheeler</h2>
                         <br>
                         <form [formGroup]="premium2Form" class="form-group">
                             <input type="text" placeholder="Bike Model" class="form-control"
@@ -27,7 +27,7 @@
                         </form>
                     </div>
                     <div *ngIf="currDiv == '4wheeler'">
-                        <h2 class="h2">Premium Calculator for 4 Wheeler</h2>
+                        <h2 class="display-5 text-center">Premium Calculator for 4 Wheeler</h2>
                         <br>
                         <form [formGroup]="premium4Form" class="form-group">
                             <input type="text" placeholder="Car Model" class="form-control" formControlName="car_Model">

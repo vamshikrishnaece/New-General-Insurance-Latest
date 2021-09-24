@@ -13,81 +13,88 @@
                         Four Wheeler</button>
                 </div>
                 <hr>
-                <form class="form">
+                <form class="form" [formGroup]="TwheelerForm">
                     <div *ngIf="currDiv=='2wheeler'" style="text-align: left;">
-                        <label for="2manu">Enter Bike Manufacturer</label>
-                        <input type="text" formControlName="2manu" class="form-control"
-                            placeholder="Enter Bike manufacturer:" id="2manu"><br />
-
+                        <label for="Tmanu">Enter Bike Manufacturer</label>
+                            <input type="text" formControlName="Tmanu" id="Tmanu" placeholder="Enter Bike Manufacturer"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && fff.Tmanu.errors }" />
+                        <div *ngIf="submitted && fff.Tmanu.errors" class="invalid-feedback">
+                            <div *ngIf="fff.Tmanu.errors.required">Chassis Number is required</div>
+                        </div><br />
 
                         <label for="bikemodel">Enter Bike Model</label>
-                        <input type="text" formControlName="bikemodel" class="form-control"
-                            placeholder="Enter Bike model:" id="bikemodel"><br />
-
-
-                        <label for="license">Enter Driving License</label>
-                        <input type="text" formControlName="license" id="license" placeholder="Enter Driving License"
-                            class="form-control"><br />
-
-
-                        <label for="purchasedate">Enter Purchase Date</label>
-                        <input type="date" formControlName="purchasedate" id="purchasedate"
-                            placeholder="Enter Purchase Date" class="form-control"><br />
-
-
-                        <label for="regnum">Enter Registration Number</label>
-                        <input type="text" formControlName="regnum" id="regnum" placeholder="Enter Registration Number:"
-                            class="form-control"><br />
-
-
-                        <label for="engnumber">Enter Engine Number</label>
-                        <input type="text" formControlName="engnumber" id="engnumber" placeholder="Enter Engine Number"
-                            class="form-control"><br />
-
-
-                        <label for="chassnumber">Enter Chassis Number</label>
-                        <input type="text" formControlName="chassnumber" id="chassnumber"
-                            placeholder="Enter Chassis Number" class="form-control"><br>
-                        <button type="submit" class="btn btn-primary" id="button">Submit</button><br><br>
+                            <input type="text" formControlName="bikemodel" placeholder="Enter Bike Model"
+                        class="form-control" [ngClass]="{ 'is-invalid': submitted && fff.bikemodel.errors }" />
+                    <div *ngIf="submitted && fff.bikemodel.errors" class="invalid-feedback">
+                        <div *ngIf="fff.bikemodel.errors.required">Bike Modelis required</div>
+                    </div><br />
                     </div>
+
+                </form>
+
+                <form class="form" [formGroup]="FwheelerForm" >
 
                     <div *ngIf="currDiv=='4wheeler'" style="text-align: left;">
-                        <label for="4manu">Enter Car Manufacturer</label>
-                        <input type="text" formControlName="4manu" id="4manu" placeholder="Enter Car manufacturer"
-                            class="form-control"><br />
-
+                        <label for="Fmanu">Enter Car Manufacturer</label>
+                        <input type="text" formControlName="Fmanu" placeholder="Enter car manufacturer"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && ff.Fmanu.errors }" />
+                        <div *ngIf="submitted && ff.Fmanu.errors" class="invalid-feedback">
+                            <div *ngIf="ff.Fmanu.errors.required">Car Model is required</div>
+                        </div><br />
 
                         <label for="carmodel">Enter Car Model</label>
-                        <input type="text" formControlName="carmodel" id="carmodel" placeholder="Enter Car model"
-                            class="form-control"><br />
-
-
-                        <label for="license">Enter Driving License</label>
-                        <input type="text" formControlName="license" id="license" placeholder="Enter Driving License"
-                            class="form-control"><br />
-
-
-                        <label for="purchasedate">Enter Purchase Date</label>
-                        <input type="date" formControlName="purchasedate" id="purchasedate"
-                            placeholder="Enter Purchase Date" class="form-control"><br />
-
-
-                        <label for="regnum">Enter Registration Number</label>
-                        <input type="text" formControlName="regnum" id="regnum" placeholder="Enter Registration Number:"
-                            class="form-control"><br />
-
-
-                        <label for="engnumber">Enter Engine Number</label>
-                        <input type="text" formControlName="engnumber" id="engnumber" placeholder="Enter Engine Number"
-                            class="form-control"><br />
-
-
-                        <label for="chassnumber">Enter Chassis Number</label>
-                        <input type="text" formControlName="chassnumber" id="chassnumber"
-                            placeholder="Enter Chassis Number" class="form-control"><br />
-                        <button type="submit" class="btn btn-primary" id="button">Submit</button><br><br>
+                        <input type="text" formControlName="carmodel" placeholder="Enter Car Model" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && ff.carmodel.errors }" />
+                        <div *ngIf="submitted && ff.carmodel.errors" class="invalid-feedback">
+                            <div *ngIf="ff.carmodel.errors.required">Car Model is required</div>
+                        </div><br />
                     </div>
+
                 </form>
+
+                <form class="form" style="text-align: left;" [formGroup]="buyInsuranceForm" (ngSubmit)="onSubmit()">
+                    <label for="chassisNo">Enter Chassis Number</label>
+                    <input type="text" formControlName="chassisNo" id="chassisNo" placeholder="Enter Chassis Number"
+                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f.chassisNo.errors }" />
+                    <div *ngIf="submitted && f.chassisNo.errors" class="invalid-feedback">
+                        <div *ngIf="f.chassisNo.errors.required">Chassis Number is required</div>
+                    </div><br />
+
+                    
+
+                    <label for="regnum">Enter Registration Number</label>
+                    <input type="text" formControlName="registrationNo" placeholder="Enter Registration Number"
+                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f.registrationNo.errors }" />
+                    <div *ngIf="submitted && f.registrationNo.errors" class="invalid-feedback">
+                        <div *ngIf="f.registrationNo.errors.required">Registration Number is required</div>
+                    </div><br />
+
+
+                    <label for="engnumber">Enter Engine Number</label>
+                    <input type="text" formControlName="engineNo" placeholder="Enter Engine Number" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.engineNo.errors }" />
+                    <div *ngIf="submitted && f.engineNo.errors" class="invalid-feedback">
+                        <div *ngIf="f.engineNo.errors.required">Engine Number is required</div>
+                    </div>
+
+                    <label for="license">Enter Driving License</label>
+                    <input type="text" formControlName="drivingLicence" placeholder="Enter Driving Licence"
+                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f.drivingLicence.errors }" />
+                    <div *ngIf="submitted && f.drivingLicence.errors" class="invalid-feedback">
+                        <div *ngIf="f.drivingLicence.errors.required">Driving Licence is required</div>
+                    </div>
+
+                    <label for="purchasedate">Enter Purchase Date</label>
+                    <input type="text" formControlName="purchaseDate" placeholder="Enter Purchase Date"
+                        class="form-control" [ngClass]="{ 'is-invalid': submitted && f.purchaseDate.errors }" />
+                    <div *ngIf="submitted && f.purchaseDate.errors" class="invalid-feedback">
+                        <div *ngIf="f.purchaseDate.errors.required">Purchase Date is required</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="button">Submit</button><br><br>
+
+                </form>
+
                 <a routerLink=""><button class="btn btn-success">Back Home</button></a><br>
             </div>
         </div>
