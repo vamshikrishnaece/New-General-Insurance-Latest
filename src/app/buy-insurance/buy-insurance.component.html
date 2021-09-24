@@ -1,0 +1,93 @@
+<p>buy-insurance works!</p>
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+
+
+                <h5 class="display-2 text-center">Buy Insureance</h5>
+               
+                <div class="card-body">
+                    <form [formGroup]="buyInsuranceForm" (ngSubmit)="onSubmit()">
+
+                        <div style="text-align: center;">
+                            <input type="button" value="Two Wheeler" id="twowheeler" formControlName="twowheeler"
+                                #twowheeler class="btn btn-primary btn-lg " />
+                            &nbsp;&nbsp;
+                            <input type="button" value="Four Wheeler" id="fourwheeler" formControlName="fourwheeler"
+                                #fourwheeler class="btn btn-primary btn-lg">
+                                
+                        </div>
+
+
+                        <div class="form-group"></div>
+                        <input type="text" formControlName="manufacturer" placeholder="Enter car/bike manufacturer"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.manufacturer.errors }" />
+                        <div *ngIf="submitted && f.manufacturer.errors" class="invalid-feedback">
+                            <div *ngIf="f.manufacturer.errors.required">manufacturer is required</div>
+                        </div>
+
+                        <div class="form-group"></div>
+                        <input type="text" formControlName="model" placeholder="Enter car/bike model"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.model.errors }" />
+                        <div *ngIf="submitted && f.model.errors" class="invalid-feedback">
+                            <div *ngIf="f.model.errors.required">model is required</div>
+                        </div>
+
+                        <div class="form-group"></div>
+                        <input type="text" formControlName="drivingLicence" placeholder="Enter Driving Licence"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.drivingLicence.errors }" />
+                        <div *ngIf="submitted && f.drivingLicence.errors" class="invalid-feedback">
+                            <div *ngIf="f.drivingLicence.errors.required">Driving Licence is required</div>
+                        </div>
+
+
+                        <div class="form-group"></div>
+                        <input type="text" formControlName="purchaseDate" placeholder="Enter Purchase Date"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.purchaseDate.errors }" />
+                        <div *ngIf="submitted && f.purchaseDate.errors" class="invalid-feedback">
+                            <div *ngIf="f.purchaseDate.errors.required">Purchase Date is required</div>
+                        </div>
+
+                        <div class="form-group"></div>
+                        <input type="text" formControlName="registrationNo" placeholder="Enter Registration Number"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.registrationNo.errors }" />
+                        <div *ngIf="submitted && f.registrationNo.errors" class="invalid-feedback">
+                            <div *ngIf="f.registrationNo.errors.required">Registration Number is required</div>
+                        </div>
+
+                        <div class="form-group"></div>
+                        <input type="text" formControlName="engineNo" placeholder="Enter Engine Number"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.engineNo.errors }" />
+                        <div *ngIf="submitted && f.engineNo.errors" class="invalid-feedback">
+                            <div *ngIf="f.engineNo.errors.required">Registration Number is required</div>
+                        </div>
+
+                        <div class="form-group"></div>
+                        <input type="text" formControlName="chassisNo" placeholder="Enter Chassis Number"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.chassisNo.errors }" />
+                        <div *ngIf="submitted && f.chassisNo.errors" class="invalid-feedback">
+                            <div *ngIf="f.chassisNo.errors.required">Registration Number is required</div>
+                        </div>
+
+
+
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="text-center">
+                            <button class="btn btn-primary mr-1">Submit</button>
+                        </div>
+
+                        <hr>
+
+                    </form>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

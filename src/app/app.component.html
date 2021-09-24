@@ -1,14 +1,107 @@
-<!-- <app-userpolicydetails></app-userpolicydetails>
+<app-userpolicydetails></app-userpolicydetails>
 
 <app-calculator></app-calculator> 
 
 <app-claimpage></app-claimpage>
 
-<app-policypage></app-policypage> -->
+<app-policypage></app-policypage>
 
-<!-- 
-<app-userpolicies></app-userpolicies> -->
+
+<app-userpolicies></app-userpolicies>
  
 
 <router-outlet></router-outlet>
 <app-claimhistory></app-claimhistory> 
+
+<app-buy-insurance></app-buy-insurance> 
+<app-login></app-login>
+<app-register></app-register>
+<app-forgot-password></app-forgot-password>
+<app-menu></app-menu>
+
+
+
+
+<html lang="en">
+<head>
+  <title>Vehicle Insurance</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  .fakeimg {
+    height: 200px;
+    background: #aaa;
+  }
+  .button{
+    background-color:#4CAF50;
+    width: 50%;
+    padding: 9px 5px;
+    margin:10px 0px 0px 35px;
+    cursor:pointer;
+    border:none;
+    color:#ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    }
+     
+    .button:hover{
+    opacity:0.8;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        
+        <a class="navbar-brand" href="" style="padding: 0px;">
+          <h2 class="navbar-brand brand-name"></h2>
+          <img src="../assets/100.jpeg"  style="height: 100%; display: inline-block;" />
+        </a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+    </div>
+    <div class="collapse navbar-expand-lg navbar-d navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li ><a routerLink="login">Login</a></li>
+        <li><a routerLink="/register">Register</a></li>
+        <li><a routerLink="">Contact</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Help</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<router-outlet></router-outlet>
+
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <p>Footer</p>
+</div>
+
+</body>
+</html>
+
+
+

@@ -10,6 +10,13 @@ import { UserpoliciesComponent } from './userpolicies/userpolicies.component';
 import { ClaimpageComponent } from './claimpage/claimpage.component';
 import { ClaimhistoryComponent } from './claimhistory/claimhistory.component';
 import { PolicypageComponent } from './policypage/policypage.component';
+import { RegisterComponent } from './register/register.component';
+import { MenuComponent } from './menu/menu.component';
+import { LoginComponent } from './login/login.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { BuyInsuranceComponent } from './buy-insurance/buy-insurance.component';
+import { NgxCaptchaModule } from 'ngx-captcha';
 
 @NgModule({
   declarations: [
@@ -19,13 +26,25 @@ import { PolicypageComponent } from './policypage/policypage.component';
     UserpoliciesComponent,
     ClaimpageComponent,
     ClaimhistoryComponent,
-    PolicypageComponent
+    PolicypageComponent,
+    RegisterComponent,
+    MenuComponent,
+    LoginComponent,
+    HomePageComponent,
+    ForgotPasswordComponent,
+    BuyInsuranceComponent,
+
+
+
+
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxCaptchaModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
