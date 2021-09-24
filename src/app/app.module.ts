@@ -17,6 +17,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { BuyInsuranceComponent } from './buy-insurance/buy-insurance.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { PolicytypeComponent } from './policytype/policytype.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { NgxCaptchaModule } from 'ngx-captcha';
     HomePageComponent,
     ForgotPasswordComponent,
     BuyInsuranceComponent,
+    PolicytypeComponent,
 
 
 
