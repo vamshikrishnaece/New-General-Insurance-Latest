@@ -1,3 +1,4 @@
+
 <app-home-page></app-home-page>
 <app-policytype></app-policytype>
 
@@ -57,22 +58,18 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        
-        <a class="navbar-brand" href="" style="padding: 0px;">
-          <h2 class="navbar-brand brand-name"></h2>
-          <img src="../assets/100.jpeg"  style="height: 100%; display: inline-block;" />
-        </a>
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          
-        </ul>
-      </div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+
+      <a class="navbar-brand" href="" style="padding: 0px;">
+        <h2 class="display-6">LTI INSURANCE</h2>
+      </a>
     </div>
-  </nav>
+
+  </div>
+</nav>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -80,12 +77,12 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
     </div>
     <div class="collapse navbar-expand-lg navbar-d navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li ><a routerLink="login">Login</a></li>
+        <li><a routerLink="login">Login</a></li>
         <li><a routerLink="/register">Register</a></li>
         <li><a routerLink="">Contact</a></li>
         <li><a href="#">About Us</a></li>
@@ -93,18 +90,24 @@
         <li><a href="#">FAQ</a></li>
       </ul>
     </div>
+
   </div>
 </nav>
 
 
 <router-outlet></router-outlet>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <p>Footer</p>
-</div>
+<footer style="bottom: 0px; position: relative; text-align: center; width: 100%;">
+  <div class="footer-icons">
 
-</body>
-</html>
+    <a href="#">Facebook<i class="fa fa-facebook"></i></a>|
+    <a href="#">Twitter<i class="fa fa-twitter"></i></a>|
+    <a href="#">LinkedIn<i class="fa fa-linkedin"></i></a>|
+    <a href="#">Github<i class="fa fa-github"></i></a>
 
+  </div>
 
+  <p class="copyright-text">Copyright &copy; 2021 All Rights Reserved by</p>
+  <p class="footer-company-name">LTI © 2021</p>
 
+</footer>
