@@ -18,6 +18,10 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { BuyInsuranceComponent } from './buy-insurance/buy-insurance.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { PolicytypeComponent } from './policytype/policytype.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { PaymentgatewayComponent } from './paymentgateway/paymentgateway.component';
+import { FAQComponent } from './faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +39,10 @@ import { PolicytypeComponent } from './policytype/policytype.component';
     ForgotPasswordComponent,
     BuyInsuranceComponent,
     PolicytypeComponent,
+    AboutusComponent,
+    ContactusComponent,
+    PaymentgatewayComponent,
+    FAQComponent,
 
 
 
