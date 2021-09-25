@@ -1,5 +1,6 @@
 <div class="jumbotron" style="text-align: center;">
     <div class="container">
+        <button routerLink="/../" style="float: left;" class="transparent btn"><u>&laquo; Back</u></button>
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <h2>Buy Insurance</h2>
@@ -16,23 +17,23 @@
                 <form class="form" [formGroup]="TwheelerForm">
                     <div *ngIf="currDiv=='2wheeler'" style="text-align: left;">
                         <label for="Tmanu">Enter Bike Manufacturer</label>
-                            <input type="text" formControlName="Tmanu" id="Tmanu" placeholder="Enter Bike Manufacturer"
+                        <input type="text" formControlName="Tmanu" id="Tmanu" placeholder="Enter Bike Manufacturer"
                             class="form-control" [ngClass]="{ 'is-invalid': submitted && fff.Tmanu.errors }" />
                         <div *ngIf="submitted && fff.Tmanu.errors" class="invalid-feedback">
                             <div *ngIf="fff.Tmanu.errors.required">Chassis Number is required</div>
                         </div><br />
 
                         <label for="bikemodel">Enter Bike Model</label>
-                            <input type="text" formControlName="bikemodel" placeholder="Enter Bike Model"
-                        class="form-control" [ngClass]="{ 'is-invalid': submitted && fff.bikemodel.errors }" />
-                    <div *ngIf="submitted && fff.bikemodel.errors" class="invalid-feedback">
-                        <div *ngIf="fff.bikemodel.errors.required">Bike Modelis required</div>
-                    </div><br />
+                        <input type="text" formControlName="bikemodel" placeholder="Enter Bike Model"
+                            class="form-control" [ngClass]="{ 'is-invalid': submitted && fff.bikemodel.errors }" />
+                        <div *ngIf="submitted && fff.bikemodel.errors" class="invalid-feedback">
+                            <div *ngIf="fff.bikemodel.errors.required">Bike Modelis required</div>
+                        </div><br />
                     </div>
 
                 </form>
 
-                <form class="form" [formGroup]="FwheelerForm" >
+                <form class="form" [formGroup]="FwheelerForm">
 
                     <div *ngIf="currDiv=='4wheeler'" style="text-align: left;">
                         <label for="Fmanu">Enter Car Manufacturer</label>
@@ -60,7 +61,7 @@
                         <div *ngIf="f.chassisNo.errors.required">Chassis Number is required</div>
                     </div><br />
 
-                    
+
 
                     <label for="regnum">Enter Registration Number</label>
                     <input type="text" formControlName="registrationNo" placeholder="Enter Registration Number"
@@ -90,12 +91,13 @@
                     <div *ngIf="submitted && f.purchaseDate.errors" class="invalid-feedback">
                         <div *ngIf="f.purchaseDate.errors.required">Purchase Date is required</div>
                     </div>
-
-                    <button type="submit" class="btn btn-primary" id="button">Submit</button><br><br>
-
+                    <br>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary" routerLink="type">Submit</button><br><br>
+                    </div>
                 </form>
 
-                <a routerLink=""><button class="btn btn-success">Back Home</button></a><br>
+                <a style="float: right;" routerLink=""><button class="btn btn-success">Back Home</button></a><br>
             </div>
         </div>
     </div>

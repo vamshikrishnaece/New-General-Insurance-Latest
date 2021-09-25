@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup ,Validators} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup ,Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-forgot-password',
@@ -14,9 +14,8 @@ export class ForgotPasswordComponent implements OnInit {
   title='recaptcha';
   ngOnInit(): void {
     this.ForgotForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      recaptcha: ['',Validators.required]
+      email: new FormControl('', [Validators.required, Validators.email]),
+      recaptcha: new FormControl('',[Validators.required])
     });
     this.sitekey="6Lf9kIQcAAAAAAcywsqbvMIWoYldhKYFjXumwTAN";
   }

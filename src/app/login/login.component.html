@@ -1,15 +1,11 @@
-
 <div class="jumbotron">
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-
                 <h2 class="display-2 text-center">Login</h2>
                 <hr>
                 <div class="card-body">
                     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-
-
                         <div class="form-group">
                             <label>Email</label>
                             <input type="text" formControlName="email" class="form-control"
@@ -33,19 +29,18 @@
 
                         <div class="text-center">
                             <button class="btn btn-primary mr-1">Login</button>&nbsp;&nbsp;
-                            <a routerLink="forgot">
-                            <button class="btn btn-secondary" type="button" (click)="onForgot()">
+                            <button class="btn btn-secondary" routerLink="forgot" type="button" (click)="onForgot()">
                                 Forgot Password</button>
-                            </a>
                         </div>
-
-
+                        <br>
+                        <div class="text-center">
+                            <button class="btn btn-primary mr-1" routerLink="/../register">Register</button>
+                        </div>
                     </form>
-
                 </div>
+                <a routerLink="" style="float: right;"><button class="btn btn-success">Back Home</button></a>
+                <br>
             </div>
         </div>
     </div>
 </div>
-
-
