@@ -17,8 +17,14 @@
                         <h2 class="display-5 text-center">Premium Calculator for 2 Wheeler</h2>
                         <br>
                         <form [formGroup]="premium2Form" class="form-group">
-                            <input type="text" placeholder="Bike Model" class="form-control"
-                                formControlName="bike_Model">
+
+                            <select name="bikemodel" id="bikemodel" formControlName="bike_Model"
+                                class="form-select form-select-lg mb-3">
+                                <option value="tvs">TVS</option>
+                                <option value="honda">Honda</option>
+                                <option value="bmw">BMW</option>
+                                <option value="apache">Apache</option>
+                            </select>
                             <br>
                             <input type="text" placeholder="Bike Age" class="form-control" formControlName="bike_Age">
                             <br>
@@ -30,7 +36,13 @@
                         <h2 class="display-5 text-center">Premium Calculator for 4 Wheeler</h2>
                         <br>
                         <form [formGroup]="premium4Form" class="form-group">
-                            <input type="text" placeholder="Car Model" class="form-control" formControlName="car_Model">
+                            <select name="carmodel" id="carmodel" formControlName="car_Model"
+                                class="form-select form-select-lg mb-3">
+                                <option value="maruti">Maruti</option>
+                                <option value="hyundai">Hyundai</option>
+                                <option value="honda">Honda</option>
+                                <option value="audi">Audi</option>
+                            </select>
                             <br>
                             <input type="text" placeholder="Car Age" class="form-control" formControlName="car_Age">
                             <br>

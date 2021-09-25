@@ -10,6 +10,7 @@ export class PolicypageComponent implements OnInit {
   buyInsuranceForm!:FormGroup;
   FwheelerForm!:FormGroup;
   TwheelerForm!:FormGroup;
+  buttonForm !: FormGroup;
   submitted = false;
 
 
@@ -41,7 +42,11 @@ export class PolicypageComponent implements OnInit {
       bikemodel:['', [Validators.required]],
       vechiletype:['2']
     });
-    
+    this.buttonForm = this.formBuilder.group(
+      {
+        vehiclediv:[]
+      }
+    )
   }
   get f() { return this.buyInsuranceForm.controls; }
   get ff() { return this.FwheelerForm.controls || this.TwheelerForm.controls ; }

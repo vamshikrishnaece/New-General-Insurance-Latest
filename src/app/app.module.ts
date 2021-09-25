@@ -22,6 +22,7 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { PaymentgatewayComponent } from './paymentgateway/paymentgateway.component';
 import { FAQComponent } from './faq/faq.component';
+import { RenewalpageComponent } from './renewalpage/renewalpage.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { FAQComponent } from './faq/faq.component';
     ContactusComponent,
     PaymentgatewayComponent,
     FAQComponent,
+    RenewalpageComponent,
 
 
 
