@@ -1,0 +1,20 @@
+{
+  "user": [
+    {
+	"id":1,
+      "name": "john",
+      "email": "john@gmail.com",
+      "password": "pwd",
+      "price": "70000",
+      "quantity": "1"
+    },
+    {
+"id":2,
+      "name": "steve",
+      "email": "steve@gmail.com",
+      "password": "pwd",
+      "price": "70000",
+      "quantity": "1"
+    }
+  ]
+}
