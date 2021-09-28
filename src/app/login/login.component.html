@@ -7,6 +7,10 @@
                 <div class="card-body">
                     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                         <div class="form-group">
+                            
+                        <div class="text-danger">
+                            {{errormsg}}
+                        </div>
                             <label>Email</label>
                             <input type="text" formControlName="email" class="form-control"
                                 [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
@@ -36,6 +40,8 @@
                         <div class="text-center">
                             <button class="btn btn-primary mr-1" routerLink="/../register">Register</button>
                         </div>
+
+
                     </form>
                 </div>
                 <a routerLink="" style="float: right;"><button class="btn btn-success">Back Home</button></a>

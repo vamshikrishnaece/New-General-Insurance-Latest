@@ -1,4 +1,5 @@
 export class UserTable {
+    Id!:number;
     Name!: string;
     Email!: string;
     DOB!: Date;

@@ -5,9 +5,15 @@
                 <h5 class=" display-2 text-center">Registration</h5>
                 <hr>
                 <div class="card-body">
-
+                    <!-- <div class="text-danger">
+                     
+                        {{errormsg}}
+                    </div> -->
                     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+
+                 
                         <div class="form-group">
+                           
                             <label>Name</label>
                             <input type="text" formControlName="Name" class="form-control"
                                 [ngClass]="{ 'is-invalid': submitted && f.Name.errors }" />
@@ -37,11 +43,11 @@
 
                         <div class="form-group">
                             <label>Phone Number</label>
-                            <input type="tel" formControlName="Phonenumber" class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && f.Phonenumber.errors }" />
-                            <div *ngIf="submitted && f.Phonenumber.errors" class="invalid-feedback">
-                                <div *ngIf="f.Phonenumber.errors.required">Phone Number is required</div>
-                                <div *ngIf="f.Phonenumber.errors.minlength">Phone Number must be at least 10 Digits
+                            <input type="tel" formControlName="ContactNo" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.ContactNo.errors }" />
+                            <div *ngIf="submitted && f.ContactNo.errors" class="invalid-feedback">
+                                <div *ngIf="f.ContactNo.errors.required">Phone Number is required</div>
+                                <div *ngIf="f.ContactNo.errors.minlength">Phone Number must be at least 10 Digits
                                 </div>
                             </div>
                         </div>
@@ -88,10 +94,15 @@
                             <button class="btn btn-primary mr-1">Register</button>&nbsp;&nbsp;
                             <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
                         </div>
+                        <div class="text-danger">
+                     
+                            {{errormsg}}
+                        </div>
                     </form>
-
                     <a routerLink="/../" style="float: right;"><button class="btn btn-success">Back Home</button></a>
                 </div>
             </div>
         </div>
     </div>
+
+    

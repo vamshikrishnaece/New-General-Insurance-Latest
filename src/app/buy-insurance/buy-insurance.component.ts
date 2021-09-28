@@ -15,6 +15,7 @@ export class BuyInsuranceComponent implements OnInit {
 
   ngOnInit(): void {
     this.buyInsuranceForm = this.formBuilder.group({
+      
       manufacturer: ['', [Validators.required]],
       model: ['', [Validators.required]],
       drivingLicence:['', [Validators.required]],

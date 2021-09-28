@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { ClaimhistoryComponent } from './claimhistory/claimhistory.component';
 import { ClaimpageComponent } from './claimpage/claimpage.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { FAQComponent } from './faq/faq.component';
@@ -18,6 +19,7 @@ import { UserpoliciesComponent } from './userpolicies/userpolicies.component';
 
 const routes: Routes = [
   {path:"", component:HomePageComponent},
+  {path:"Home", component:HomePageComponent},
   {path:"register", component : RegisterComponent},
   {path:"login", component : LoginComponent},
   {path:"estimate", component:CalculatorComponent},
@@ -31,7 +33,10 @@ const routes: Routes = [
   {path:"buy/type", component:PolicytypeComponent},
   {path:"buy/type/makepayment", component:PaymentgatewayComponent},
   {path:"renew/type/makepayment", component:PaymentgatewayComponent},
-  {path:"renew", component:RenewalpageComponent}
+  {path:"renew", component:RenewalpageComponent},
+  {path:"Claimhistory", component:ClaimhistoryComponent},
+  {path:"type", component:PolicytypeComponent},
+
 ];
 
 @NgModule({
