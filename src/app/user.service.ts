@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { ClaimRequestTable } from './claim-request-table';
+import { InsuranceTable } from './insurance-table';
 import { Login } from './login';
 import { UserTable } from './user-table';
 
@@ -60,6 +61,10 @@ export class UserService {
      return this.client.get<string>(this.url+  "ClaimRequestTables"+"/"+id);
   }
    
+  BuyInsurance(insurancetable:InsuranceTable)
+  {
+    return this.client.post<InsuranceTable>(this.url+"InsuranceTables", JSON.stringify(insurancetable), this.httpOptions)
+  }
 
   
 

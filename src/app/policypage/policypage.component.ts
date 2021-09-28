@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,Validators,FormBuilder, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
  
 @Component({
   selector: 'app-policypage',
@@ -22,7 +23,7 @@ export class PolicypageComponent implements OnInit {
     this.buttontouched = true;
     this.currDiv = s;
   }
- constructor(private formBuilder: FormBuilder, private route : Router) { }
+ constructor(private formBuilder: FormBuilder, private route : Router,private service:UserService) { }
  
   ngOnInit(): void {
     
@@ -58,20 +59,26 @@ export class PolicypageComponent implements OnInit {
     this.submitted = true;
  
     // stop here if form is invalid
-    if (this.TwheelerForm.invalid || this.FwheelerForm.invalid)  {
-     
+    if (this.TwheelerForm.invalid || this.FwheelerForm.invalid)  
+     {console.log("ifpart");
       return;
-    }
+     }
+      
+
     else{
       console.log("elsepart");
        this.route.navigateByUrl("buy/type")
       //  alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.buyInsuranceForm.value,null,4));
     }
     // display form values on success
+
+    
+  
+
     
   }
- 
- 
 }
+ 
+
  
 
