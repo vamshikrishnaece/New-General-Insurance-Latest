@@ -26,6 +26,7 @@ const routes: Routes = [
   {path:"buy", component:PolicypageComponent},
   {path:"login/forgot", component:ForgotPasswordComponent},
   {path:"renew/type", component:PolicytypeComponent},
+  {path:"renew/:appid", component:PolicytypeComponent},
   {path:"claim", component:ClaimpageComponent},
   {path:"contactus", component:ContactusComponent},
   {path:"about", component:AboutusComponent},

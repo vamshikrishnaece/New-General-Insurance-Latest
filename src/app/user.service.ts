@@ -39,24 +39,19 @@ export class UserService {
     return this.client.post<Login>(this.url+"usertables"+"/"+login, JSON.stringify(login), this.httpOptions)
   }
 
-  // create(product): Observable<Product> {
-  //   return this.httpClient.post<Product>(this.apiServer + '/product/', JSON.stringify(product), this.httpOptions)
-
-
   GetUserbyEmail(email : any ) 
   {
     return this.client.get<UserTable>(this.url+"usertables/" + email);
   }
-  
-
 
   ClaimRequest(claimrequest:ClaimRequestTable)
   {
     return this.client.post<ClaimRequestTable>(this.url+"ClaimRequestTables", JSON.stringify(claimrequest), this.httpOptions)
   }
+
   GetContact(id:number)
   {
-     return this.client.get<string>(this.url+  "ClaimRequestTables"+"/"+id);
+     return this.client.get<string>(this.url + "ClaimRequestTables"+"/"+id);
   }
    
   BuyInsurance(insurancetable:InsuranceTable)
@@ -69,6 +64,15 @@ export class UserService {
     return this.client.post<PolicyTable>(this.url+"PolicyTables", JSON.stringify(policytable), this.httpOptions)
   }
 
+  GetPolicyTable(id : number)
+  {
+    return this.client.get<PolicyTable>(this.url + "PolicyTables/"+ id);
+  }
+
+  UpdatePolicyStatus(id : number, status : string)
+  {
+    return this.client.put<PolicyTable>(this.url + "PolicyTables/"+ id, status);
+  }
 }
 
 

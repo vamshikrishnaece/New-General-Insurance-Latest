@@ -53,7 +53,7 @@ import { RenewalpageComponent } from './renewalpage/renewalpage.component';
     ReactiveFormsModule,
     FormsModule,
     NgxCaptchaModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

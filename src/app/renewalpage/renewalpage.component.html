@@ -1,4 +1,4 @@
-<div class="jumbotron" (click)="onSubmit()">
+<div class="jumbotron">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 offset-md-3">
@@ -8,6 +8,11 @@
                 <br>
                 <hr>
                 <br>
+                <div class="text-danger">
+                    {{message}}
+                    <h3>{{policystatus}}</h3>
+                    <h3>{{text}}</h3>
+                </div>
                 <form [formGroup]="renewalform" (ngSubmit)="onSubmit()">
                     <div class="form-group">
                         <label for="policyno" id="policyno" style="font-size:small;">Policy No<span>*</span></label>
@@ -48,8 +53,7 @@
 
                     <div class="form-group text-center">
 
-                        <button class="btn btn-primary mr-1 btn-lg" routerLink="type"
-                            [disabled]="!this.renewalform.valid">Submit</button>
+                        <button class="btn btn-primary mr-1 btn-lg" [disabled]="!this.renewalform.valid">Submit</button>
                     </div>
 
 
