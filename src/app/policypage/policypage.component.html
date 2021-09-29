@@ -1,4 +1,4 @@
-<div class="jumbotron" style="text-align: center;" (click)="onSubmit()">
+<div class="jumbotron" style="text-align: center;" >
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
@@ -7,225 +7,161 @@
                 <h4>Please select any one</h4>
 
                 <div>
-                    <button type="button" id="twowheeler" class="btn btn-primary btn-lg" (click)="ShowDiv('2wheeler')"
-                        >Two Wheeler</button>
+                    <button type="button" id="twowheeler" class="btn btn-primary btn-lg"
+                        (click)="ShowDiv('2wheeler')">Two Wheeler</button>
 
                     &nbsp;&nbsp;
-                    <button type="button" id="fourwheeler" class="btn btn-primary btn-lg" (click)="ShowDiv('4wheeler')"
-                       >
+                    <button type="button" id="fourwheeler" class="btn btn-primary btn-lg" 
+                    (click)="ShowDiv('4wheeler')">
                         Four Wheeler</button>
 
                 </div>
 
-                <div *ngIf="(buttontouched==false)" class="text-danger">
-                    Please select one button
-                </div>
+
 
                 <br>
                 <div>
-                    <form class="form" [formGroup]="TwheelerForm" (ngSubmit)="onSubmit()">
+                    <form class="form" [formGroup]="TwheelerForm">
                         <div *ngIf="currDiv=='2wheeler'" style="text-align: left;">
-                            <label for="Tmanu">Enter Bike Manufacturer</label>
-                            <input type="text" formControlName="Tmanu" id="Tmanu" placeholder="Enter Bike Manufacturer"
-                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Tmanu.errors }" />
-                            <div *ngIf="submitted && f.Tmanu.errors" class="invalid-feedback">
-                                <div *ngIf="f.Tmanu.errors.required">Chassis Number is required
+                            <label for="Manufacturer">Enter Bike Manufacturer</label>
+                            <input type="text" formControlName="Manufacturer" id="Manufacturer"
+                                placeholder="Enter Bike Manufacturer" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.Manufacturer.errors }" />
+                            <div *ngIf="submitted && f.Manufacturer.errors" class="invalid-feedback">
+                                <div *ngIf="f.Manufacturer.errors.required">Chassis Number is required
                                 </div>
                             </div><br />
 
-                            <label for="bikemodel">Enter Bike Model</label>
-                            <input type="text" formControlName="bikemodel" placeholder="Enter Bike Model"
-                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f.bikemodel.errors }" />
-                            <div *ngIf="submitted && f.bikemodel.errors" class="invalid-feedback">
-                                <div *ngIf="f.bikemodel.errors.required">Bike Modelis required
+                            <label for="Model">Enter Bike Model</label>
+                            <input type="text" formControlName="Model" placeholder="Enter Bike Model"
+                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Model.errors }" />
+                            <div *ngIf="submitted && f.Model.errors" class="invalid-feedback">
+                                <div *ngIf="f.Model.errors.required">Bike Modelis required
 
                                 </div>
 
-                            </div>
+                            </div><br>
 
 
                             <div>
-                                <label for="chassisNo">Enter Chassis Number</label>
-                                <input type="text" formControlName="chassisNo" id="chassisNo"
+                                <label for="ChassisNo">Enter Chassis Number</label>
+                                <input type="text" formControlName="ChassisNo" id="ChassisNo"
                                     placeholder="Enter Chassis Number" class="form-control"
-                                    [ngClass]="{ 'is-invalid': submitted && f.chassisNo.errors }" />
-                                <div *ngIf="submitted && f.chassisNo.errors" class="invalid-feedback">
-                                    <div *ngIf="f.chassisNo.errors.required">Chassis Number is required</div>
+                                    [ngClass]="{ 'is-invalid': submitted && f.ChassisNo.errors }" />
+                                <div *ngIf="submitted && f.ChassisNo.errors" class="invalid-feedback">
+                                    <div *ngIf="f.ChassisNo.errors.required">Chassis Number is required</div>
                                 </div><br />
                             </div>
 
 
 
-                            <label for="regnum">Enter Registration Number</label>
-                            <input type="text" formControlName="registrationNo" placeholder="Enter Registration Number"
+                            <label for="RegistrationNo">Enter Registration Number</label>
+                            <input type="text" formControlName="RegistrationNo" placeholder="Enter Registration Number"
                                 class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && f.registrationNo.errors }" />
-                            <div *ngIf="submitted && f.registrationNo.errors" class="invalid-feedback">
-                                <div *ngIf="f.registrationNo.errors.required">Registration Number is required</div>
+                                [ngClass]="{ 'is-invalid': submitted && f.RegistrationNo.errors }" />
+                            <div *ngIf="submitted && f.RegistrationNo.errors" class="invalid-feedback">
+                                <div *ngIf="f.RegistrationNo.errors.required">Registration Number is required</div>
                             </div><br />
 
 
-                            <label for="engnumber">Enter Engine Number</label>
-                            <input type="text" formControlName="engineNo" placeholder="Enter Engine Number"
-                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f.engineNo.errors }" />
-                            <div *ngIf="submitted && f.engineNo.errors" class="invalid-feedback">
-                                <div *ngIf="f.engineNo.errors.required">Engine Number is required</div>
+                            <label for="EngineNo">Enter Engine Number</label>
+                            <input type="text" formControlName="EngineNo" placeholder="Enter Engine Number"
+                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f.EngineNo.errors }" />
+                            <div *ngIf="submitted && f.EngineNo.errors" class="invalid-feedback">
+                                <div *ngIf="f.EngineNo.errors.required">Engine Number is required</div>
                             </div><br>
 
-                            <label for="license">Enter Driving License</label>
-                            <input type="text" formControlName="drivingLicence" placeholder="Enter Driving Licence"
+                            <label for="DrivingLicense">Enter Driving License</label>
+                            <input type="text" formControlName="DrivingLicense" placeholder="Enter Driving Licence"
                                 class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && f.drivingLicence.errors }" />
-                            <div *ngIf="submitted && f.drivingLicence.errors" class="invalid-feedback">
-                                <div *ngIf="f.drivingLicence.errors.required">Driving Licence is required</div>
+                                [ngClass]="{ 'is-invalid': submitted && f.DrivingLicense.errors }" />
+                            <div *ngIf="submitted && f.DrivingLicense.errors" class="invalid-feedback">
+                                <div *ngIf="f.DrivingLicense.errors.required">Driving License is required</div>
                             </div><br>
 
-                            <label for="purchasedate">Enter Purchase Date</label>
-                            <input type="text" formControlName="purchaseDate" placeholder="Enter Purchase Date"
-                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f.purchaseDate.errors }" />
-                            <div *ngIf="submitted && f.purchaseDate.errors" class="invalid-feedback">
-                                <div *ngIf="f.purchaseDate.errors.required">Purchase Date is required</div>
+                            <label for="PurchaseDate">Enter Purchase Date</label>
+                            <input type="text" formControlName="PurchaseDate" placeholder="Enter Purchase Date"
+                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f.PurchaseDate.errors }" />
+                            <div *ngIf="submitted && f.PurchaseDate.errors" class="invalid-feedback">
+                                <div *ngIf="f.PurchaseDate.errors.required">Purchase Date is required</div>
                             </div>
                             <br>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary" 
-                                    [disabled]="!( this.TwheelerForm.valid)">
-
-                                    Submit</button><br><br>
-                            </div>
                         </div>
-
-
-
-
 
                     </form>
 
-                    <form class="form" [formGroup]="FwheelerForm" (ngSubmit)="onSubmit()">
+                    <form class="form" [formGroup]="FwheelerForm">
 
                         <div *ngIf="currDiv=='4wheeler'" style="text-align: left;">
-                            <label for="Fmanu">Enter Car Manufacturer</label>
-                            <input type="text" formControlName="Fmanu" placeholder="Enter car manufacturer"
-                                class="form-control" [ngClass]="{ 'is-invalid': submitted && ff.Fmanu.errors }" />
-                            <div *ngIf="submitted && ff.Fmanu.errors" class="invalid-feedback">
-                                <div *ngIf="ff.Fmanu.errors.required">Car Model is required</div>
+                            <label for="Manufacturer">Enter Car Manufacturer</label>
+                            <input type="text" formControlName="Manufacturer" placeholder="Enter car manufacturer"
+                                class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && ff.Manufacturer.errors }" />
+                            <div *ngIf="submitted && ff.Manufacturer.errors" class="invalid-feedback">
+                                <div *ngIf="ff.Manufacturer.errors.required">Car Model is required</div>
                             </div><br />
 
-                            <label for="carmodel">Enter Car Model</label>
-                            <input type="text" formControlName="carmodel" placeholder="Enter Car Model"
-                                class="form-control" [ngClass]="{ 'is-invalid': submitted && ff.carmodel.errors }" />
-                            <div *ngIf="submitted && ff.carmodel.errors" class="invalid-feedback">
-                                <div *ngIf="ff.carmodel.errors.required">Car Model is required</div>
+                            <label for="Model">Enter Car Model</label>
+                            <input type="text" formControlName="Model" placeholder="Enter Car Model"
+                                class="form-control" [ngClass]="{ 'is-invalid': submitted && ff.Model.errors }" />
+                            <div *ngIf="submitted && ff.Model.errors" class="invalid-feedback">
+                                <div *ngIf="ff.Model.errors.required">Car Model is required</div>
                             </div><br />
 
                             <div>
-                                <label for="chassisNo">Enter Chassis Number</label>
-                                <input type="text" formControlName="chassisNo" id="chassisNo"
+                                <label for="ChassisNo">Enter Chassis Number</label>
+                                <input type="text" formControlName="ChassisNo" id="ChassisNo"
                                     placeholder="Enter Chassis Number" class="form-control"
-                                    [ngClass]="{ 'is-invalid': submitted && ff.chassisNo.errors }" />
-                                <div *ngIf="submitted && ff.chassisNo.errors" class="invalid-feedback">
-                                    <div *ngIf="ff.chassisNo.errors.required">Chassis Number is required</div>
+                                    [ngClass]="{ 'is-invalid': submitted && ff.ChassisNo.errors }" />
+                                <div *ngIf="submitted && ff.ChassisNo.errors" class="invalid-feedback">
+                                    <div *ngIf="ff.ChassisNo.errors.required">Chassis Number is required</div>
                                 </div><br />
                             </div>
 
 
-
-                            <label for="regnum">Enter Registration Number</label>
-                            <input type="text" formControlName="registrationNo" placeholder="Enter Registration Number"
+                            <label for="RegistrationNo">Enter Registration Number</label>
+                            <input type="text" formControlName="RegistrationNo" placeholder="Enter Registration Number"
                                 class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && ff.registrationNo.errors }" />
-                            <div *ngIf="submitted && ff.registrationNo.errors" class="invalid-feedback">
-                                <div *ngIf="ff.registrationNo.errors.required">Registration Number is required</div>
+                                [ngClass]="{ 'is-invalid': submitted && ff.RegistrationNo.errors }" />
+                            <div *ngIf="submitted && ff.RegistrationNo.errors" class="invalid-feedback">
+                                <div *ngIf="ff.RegistrationNo.errors.required">Registration Number is required</div>
                             </div><br />
 
 
-                            <label for="engnumber">Enter Engine Number</label>
-                            <input type="text" formControlName="engineNo" placeholder="Enter Engine Number"
-                                class="form-control" [ngClass]="{ 'is-invalid': submitted && ff.engineNo.errors }" />
-                            <div *ngIf="submitted && ff.engineNo.errors" class="invalid-feedback">
-                                <div *ngIf="ff.engineNo.errors.required">Engine Number is required</div>
+                            <label for="EngineNo">Enter Engine Number</label>
+                            <input type="text" formControlName="EngineNo" placeholder="Enter Engine Number"
+                                class="form-control" [ngClass]="{ 'is-invalid': submitted && ff.EngineNo.errors }" />
+                            <div *ngIf="submitted && ff.EngineNo.errors" class="invalid-feedback">
+                                <div *ngIf="ff.EngineNo.errors.required">Engine Number is required</div>
                             </div><br>
 
-                            <label for="license">Enter Driving License</label>
-                            <input type="text" formControlName="drivingLicence" placeholder="Enter Driving Licence"
+                            <label for="DrivingLicense">Enter Driving License</label>
+                            <input type="text" formControlName="DrivingLicense" placeholder="Enter Driving Licence"
                                 class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && ff.drivingLicence.errors }" />
-                            <div *ngIf="submitted && ff.drivingLicence.errors" class="invalid-feedback">
-                                <div *ngIf="ff.drivingLicence.errors.required">Driving Licence is required</div>
+                                [ngClass]="{ 'is-invalid': submitted && ff.DrivingLicense.errors }" />
+                            <div *ngIf="submitted && ff.DrivingLicense.errors" class="invalid-feedback">
+                                <div *ngIf="ff.DrivingLicense.errors.required">Driving License is required</div>
                             </div><br>
 
-                            <label for="purchasedate">Enter Purchase Date</label>
-                            <input type="text" formControlName="purchaseDate" placeholder="Enter Purchase Date"
-                                class="form-control" [ngClass]="{ 'is-invalid': submitted && ff.purchaseDate.errors }" />
-                            <div *ngIf="submitted && ff.purchaseDate.errors" class="invalid-feedback">
-                                <div *ngIf="ff.purchaseDate.errors.required">Purchase Date is required</div>
+                            <label for="PurchaseDate">Enter Purchase Date</label>
+                            <input type="text" formControlName="PurchaseDate" placeholder="Enter Purchase Date"
+                                class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && ff.PurchaseDate.errors }" />
+                            <div *ngIf="submitted && ff.PurchaseDate.errors" class="invalid-feedback">
+                                <div *ngIf="ff.PurchaseDate.errors.required">Purchase Date is required</div>
                             </div>
                             <br>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary"
-                                    [disabled]="!( this.FwheelerForm.valid) "> Submit</button>
-
-                                   <br><br>
-                            </div>
-
-
                         </div>
-
                     </form>
-                    <!--  
-                    <form class="form" style="text-align: left;" [formGroup]="buyInsuranceForm" (ngSubmit)="onSubmit()">
- 
-                        <div>
-                            <label for="chassisNo">Enter Chassis Number</label>
-                            <input type="text" formControlName="chassisNo" id="chassisNo"
-                                placeholder="Enter Chassis Number" class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && f.chassisNo.errors }" />
-                            <div *ngIf="submitted && f.chassisNo.errors" class="invalid-feedback">
-                                <div *ngIf="f.chassisNo.errors.required">Chassis Number is required</div>
-                            </div><br />
-                        </div>
- 
- 
- 
-                        <label for="regnum">Enter Registration Number</label>
-                        <input type="text" formControlName="registrationNo" placeholder="Enter Registration Number"
-                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.registrationNo.errors }" />
-                        <div *ngIf="submitted && f.registrationNo.errors" class="invalid-feedback">
-                            <div *ngIf="f.registrationNo.errors.required">Registration Number is required</div>
-                        </div><br />
- 
- 
-                        <label for="engnumber">Enter Engine Number</label>
-                        <input type="text" formControlName="engineNo" placeholder="Enter Engine Number"
-                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.engineNo.errors }" />
-                        <div *ngIf="submitted && f.engineNo.errors" class="invalid-feedback">
-                            <div *ngIf="f.engineNo.errors.required">Engine Number is required</div>
-                        </div><br>
- 
-                        <label for="license">Enter Driving License</label>
-                        <input type="text" formControlName="drivingLicence" placeholder="Enter Driving Licence"
-                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.drivingLicence.errors }" />
-                        <div *ngIf="submitted && f.drivingLicence.errors" class="invalid-feedback">
-                            <div *ngIf="f.drivingLicence.errors.required">Driving Licence is required</div>
-                        </div><br>
- 
-                        <label for="purchasedate">Enter Purchase Date</label>
-                        <input type="text" formControlName="purchaseDate" placeholder="Enter Purchase Date"
-                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.purchaseDate.errors }" />
-                        <div *ngIf="submitted && f.purchaseDate.errors" class="invalid-feedback">
-                            <div *ngIf="f.purchaseDate.errors.required">Purchase Date is required</div>
-                        </div>
-                        <br>
+                    <div *ngIf="currDiv=='4wheeler'||currDiv=='2wheeler'">
                         <div class="text-center">
-                            <button type="submit" class="btn btn-primary" 
-                                [disabled]="!((this.buyInsuranceForm.valid) && (this.TwheelerForm.valid || this.FwheelerForm.valid) && 
-                                this.buttonForm.valid)"  
-                                >
-                                Submit</button><br><br>
+                            <button type="submit" class="btn btn-primary"
+                                [disabled]="!(this.FwheelerForm.valid || this.TwheelerForm.valid)"
+                                (click)="onSubmit()">Submit</button>
+                            <br><br>
                         </div>
-                    </form> -->
+                    </div>
                 </div>
-
                 <a style="float: right;" routerLink=""><button class="btn btn-success">Back Home</button></a><br>
             </div>
         </div>

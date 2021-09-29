@@ -4,6 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { ClaimRequestTable } from './claim-request-table';
 import { InsuranceTable } from './insurance-table';
 import { Login } from './login';
+import { PolicyTable } from './policy-table';
 import { UserTable } from './user-table';
 
 @Injectable({
@@ -11,7 +12,7 @@ import { UserTable } from './user-table';
 })
 export class UserService {
   public subject=new Subject<boolean>();
-  private url = "http://localhost:8603/api/";
+  private url = "http://localhost:65113/api/";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -41,13 +42,10 @@ export class UserService {
   // create(product): Observable<Product> {
   //   return this.httpClient.post<Product>(this.apiServer + '/product/', JSON.stringify(product), this.httpOptions)
 
-  GetUserbyEmail(email : string) 
+
+  GetUserbyEmail(email : any ) 
   {
-    return this.client.get<UserTable>(this.url+"usertables" + "?email=" + email);
-  }
-  GetUsernamebyEmail(email : string ) 
-  {
-    return this.client.get<UserTable>(this.url+"usertables" + "?email=" + email);
+    return this.client.get<UserTable>(this.url+"usertables/" + email);
   }
   
 
@@ -66,24 +64,11 @@ export class UserService {
     return this.client.post<InsuranceTable>(this.url+"InsuranceTables", JSON.stringify(insurancetable), this.httpOptions)
   }
 
-  
-
+  BuyPolicyType(policytable:PolicyTable)
+  {
+    return this.client.post<PolicyTable>(this.url+"PolicyTables", JSON.stringify(policytable), this.httpOptions)
+  }
 
 }
 
 
-
-// GetUserbyContactNo(ContactNo : number)
-//   {
-//     return this.client.get<UserTable>(this.url + "/usertable?ContactNo="+ContactNo)
-//   }
-
-//   GetInsuranceByUserId(UserId:number)
-//   {
-//     return this.client.get<InsuranceTable>(this.url+"/insurancetable?UserId="+UserId)
-//   }
-
-//   GetPolicyByAppId(ApplicationId:number)
-//   {
-//     return this.client.get<PolicyTable>(this.url+"/policytable?ApplicationId="+ApplicationId)
-//   }

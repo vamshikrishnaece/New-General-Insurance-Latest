@@ -10,6 +10,7 @@ import { FAQComponent } from './faq/faq.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
+import { MenuComponent } from './menu/menu.component';
 import { PaymentgatewayComponent } from './paymentgateway/paymentgateway.component';
 import { PolicypageComponent } from './policypage/policypage.component';
 import { PolicytypeComponent } from './policytype/policytype.component';
@@ -19,7 +20,6 @@ import { UserpoliciesComponent } from './userpolicies/userpolicies.component';
 
 const routes: Routes = [
   {path:"", component:HomePageComponent},
-  {path:"Home", component:HomePageComponent},
   {path:"register", component : RegisterComponent},
   {path:"login", component : LoginComponent},
   {path:"estimate", component:CalculatorComponent},
@@ -31,6 +31,7 @@ const routes: Routes = [
   {path:"about", component:AboutusComponent},
   {path:"faq", component:FAQComponent},
   {path:"buy/type", component:PolicytypeComponent},
+  {path:"buy/:appid", component:PolicytypeComponent},
   {path:"buy/type/makepayment", component:PaymentgatewayComponent},
   {path:"renew/type/makepayment", component:PaymentgatewayComponent},
   {path:"renew", component:RenewalpageComponent},

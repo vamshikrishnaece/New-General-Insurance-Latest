@@ -6,22 +6,22 @@
                 <hr>
                 <form class="form" [formGroup]="policyPlanForm" (ngSubmit)="onSubmit()">
                     <label>Choose your Plan</label><br>
-                    <select name="plantype" id="plantype" formControlName="plan"
+                    <select name="PolicyType" id="PolicyType" formControlName="PolicyType"
                         class="form-select form-select-lg mb-3">
                         <option value="third_party_liability">Third Party Liability</option>
                         <option value="comprehensive">Comprehensive</option>
                     </select>
                     <br>
                     <label>Choose your Duration</label><br>
-                    <select name="planduration" id="planduration" formControlName="duration"
+                    <select name="Period" id="Period" formControlName="Period"
                         class="form-select form-select-lg mb-3">
-                        <option value="one_year">One Year</option>
-                        <option value="two_year">Two Year</option>
-                        <option value="three_year">Three Year</option>
+                        <option value="1 Year">One Year</option>
+                        <option value="2 Year">Two Year</option>
+                        <option value="3 Year">Three Year</option>
                     </select>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <div class="text-center">
-                        <button class="btn btn-primary mr-1" routerLink="makepayment">Make Payment</button>
+                        <button type="submit" class="btn btn-primary mr-1" >Make Payment</button>
                     </div>
                 </form>
             </div>

@@ -9,6 +9,6 @@ export class InsuranceTable {
         RegistrationNo!:string; 
         EngineNo!:string ;
         ChassisNo!:string ;
-        UserId!:string;
+        UserId!:number;
        
 }
