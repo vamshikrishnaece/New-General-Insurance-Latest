@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import { AdminTable } from './admin-table';
 import { ClaimRequestTable } from './claim-request-table';
 import { InsuranceTable } from './insurance-table';
 import { Login } from './login';
@@ -12,7 +13,7 @@ import { UserTable } from './user-table';
 })
 export class UserService {
   public subject=new Subject<boolean>();
-  private url = "http://localhost:65113/api/";
+  private url = "http://localhost:8603/api/";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -68,11 +69,45 @@ export class UserService {
   {
     return this.client.get<PolicyTable>(this.url + "PolicyTables/"+ id);
   }
-
-  UpdatePolicyStatus(id : number, status : string)
+  UpdatePolicyStatus(id : number, status : string, policyform : PolicyTable)
   {
-    return this.client.put<PolicyTable>(this.url + "PolicyTables/"+ id, status);
+    return this.client.put<PolicyTable>(this.url + "PolicyTables/"+ id +"/" + status, policyform);
+    console.log("In service")
+    console.log(status)
   }
+
+  ForgotPassword(email:string)
+  {
+    return this.client.get<number>(this.url + "Forgot/" + email)
+  }
+
+
+  // UpdatePolicyStatus(id : number, status : string)
+  // {
+  //   return this.client.put<PolicyTable>(this.url + "PolicyTables/"+ id, status);
+  // }
+  AdminLogin(admintable:AdminTable)
+  {
+    return this.client.post<AdminTable>(this.url+"AdminTables", JSON.stringify(admintable), this.httpOptions)
+  }
+  GetClaimRequestDetails()
+  {
+    return this.client.get<ClaimRequestTable[]>(this.url + "ClaimRequestTables");
+  }
+  GetClaimRequestDataById(id : number)
+  {
+    return this.client.get<ClaimRequestTable>(this.url + "ClaimRequestTables"+"/"+id);
+  }
+
+
+
+  UpdateClaimStatus(id:number,status:string,  claimrequesttable:ClaimRequestTable)
+  {
+    return this.client.put<ClaimRequestTable>(this.url + "ClaimRequestTables/"+id+"/"+status , claimrequesttable );
+  }
+
+
+
 }
 
 

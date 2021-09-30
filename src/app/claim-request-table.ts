@@ -1,10 +1,12 @@
 export class ClaimRequestTable {
-    //ClaimRequestId!:number;
-    PolicyNo!:number;
-    Reason!:string;
+    
+    claimRequestId!:number;
+    policyNo!:number;
+    reason!:string;
     //Mobileno!:number;
-    RequestCreatedDate!:Date;
-    ClaimStatus!:string;
+    requestCreatedDate!:Date;
+    claimStatus!:string;
+    //status!:string;
     
    
 

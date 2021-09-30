@@ -1,4 +1,4 @@
-<p>admin-claim-request-table works!</p>
+
 
 <table class="table">
     <thead>
@@ -13,8 +13,8 @@
 
     </thead>
     <tbody>
-        <!-- <tr  *ngFor="let i of claimrequesttabledata">
-       
+        <tr  *ngFor="let i of claimrequesttabledata">
+        <!-- <th scope="row">1</th> -->
         <td>{{i.claimRequestId}}</td>
         <td>{{i.requestCreatedDate}}</td>
         <td>{{i.policyNo}}</td>
@@ -24,7 +24,7 @@
         <td><input type="button" class="btn btn-success" id="approve" value="Approve"   (click)="approve(i.claimRequestId ,'Approved')" /></td>
         <td><input type="button" class="btn btn-danger" id="disapprove" value="Disapprove" (click)="approve(i.claimRequestId,'Disapproved' )"  /></td>
       
-      </tr> -->
+      </tr>
   
     </tbody>
   </table>

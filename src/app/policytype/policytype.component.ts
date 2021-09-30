@@ -52,8 +52,7 @@ export class PolicytypeComponent implements OnInit {
       this.route.navigateByUrl("buy/type/makepayment");
     }
 
-    // display form values on success
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.policyPlanForm.value, null, 4));
+  
   }
 
 }

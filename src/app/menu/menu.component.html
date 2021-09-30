@@ -1,4 +1,60 @@
+<nav class="navbar navbar-inverse" style="justify-content:left;">
+  <div class="nav navbar-nav" style="float: left;">
+      <a class="navbar-brand" href="#">
+        <img src="../../assets/8.PNG" style="float: left;" width="30" height="30" alt="" >
+        <ul class="nav navbar-nav" style="float: center;">
+          <li><a routerLink="">LTI INSURANCE</a></li>
+        </ul>
+      </a>
+  </div>
+  
+</nav>
+
 <nav class="navbar navbar-inverse">
+<div class="container-fluid">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  <div *ngIf="!message" class="collapse navbar-expand-lg navbar-d navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+      <li><a routerLink="login">Login</a></li>
+      <li><a routerLink="/register">Register</a></li>
+      <li><a routerLink="contactus">Contact</a></li>
+      <li><a routerLink="about">About Us</a></li>
+      <li><a routerLink="help">Help</a></li>
+      <li><a routerLink="faq">FAQ</a></li>
+      <li></li>
+    </ul>
+    <ul class="nav navbar-nav" style="float: right;">
+      <li><a routerLink="adminlogin">Admin Login</a></li>
+    </ul>
+  </div>
+  <div *ngIf="message" class="collapse navbar-expand-lg navbar-d navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+      <li><a href="" (click)="logout()">Logout</a></li>
+      <li><a routerLink="contactus">Contact</a></li>
+      <li><a routerLink="about">About Us</a></li>
+      <li><a routerLink="help">Help</a></li>
+      <li><a routerLink="faq">FAQ</a></li>
+      <li></li>
+    </ul>
+    <ul class="nav navbar-nav" style="float: right;">
+      <li><a routerLink="adminlogin">Admin Login</a></li>
+    </ul>
+  </div>
+</div>
+</nav>
+
+
+
+
+
+
+<!-- <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="" style="padding: 0px;">
@@ -28,7 +84,7 @@
         <li></li>
       </ul>
       <ul class="nav navbar-nav" style="float: right;">
-        <li><a routerLink="login">Admin Login</a></li>
+        <li><a routerLink="adminlogin">Admin Login</a></li>
       </ul>
     </div>
     <div *ngIf="message" class="collapse navbar-expand-lg navbar-d navbar-collapse" id="myNavbar">
@@ -41,8 +97,8 @@
         <li></li>
       </ul>
       <ul class="nav navbar-nav" style="float: right;">
-        <li><a routerLink="login">Admin Login</a></li>
+        <li><a routerLink="adminlogin">Admin Login</a></li>
       </ul>
     </div>
   </div>
-</nav>
+</nav> -->

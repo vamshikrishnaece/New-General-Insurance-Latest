@@ -45,8 +45,8 @@ export class RegisterComponent implements OnInit {
 
       this.service.Register(this.registerForm.value).subscribe(data => {
         console.log(data);
-        alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
-
+       
+        this.route.navigate(['/../login']);
 
       },
         error => { this.errormsg = "Email Already exists"; }

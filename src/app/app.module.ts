@@ -24,6 +24,9 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { PaymentgatewayComponent } from './paymentgateway/paymentgateway.component';
 import { FAQComponent } from './faq/faq.component';
 import { RenewalpageComponent } from './renewalpage/renewalpage.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { ClaimTableComponent } from './claim-table/claim-table.component';
+import { AdminClaimRequestTableComponent } from './admin-claim-request-table/admin-claim-request-table.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,9 @@ import { RenewalpageComponent } from './renewalpage/renewalpage.component';
     PaymentgatewayComponent,
     FAQComponent,
     RenewalpageComponent,
+    AdminLoginComponent,
+    ClaimTableComponent,
+    AdminClaimRequestTableComponent,
   ],
   imports: [
     BrowserModule,

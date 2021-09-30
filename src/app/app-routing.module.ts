@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutusComponent } from './aboutus/aboutus.component';
+import { AdminClaimRequestTableComponent } from './admin-claim-request-table/admin-claim-request-table.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { ClaimTableComponent } from './claim-table/claim-table.component';
 import { ClaimhistoryComponent } from './claimhistory/claimhistory.component';
 import { ClaimpageComponent } from './claimpage/claimpage.component';
 import { ContactusComponent } from './contactus/contactus.component';
@@ -38,6 +41,11 @@ const routes: Routes = [
   {path:"renew", component:RenewalpageComponent},
   {path:"Claimhistory", component:ClaimhistoryComponent},
   {path:"type", component:PolicytypeComponent},
+  {path:"adminlogin", component:AdminLoginComponent},
+  {path:"claimtable", component:ClaimTableComponent},
+  {path:"adminclaimrequesttable", component:AdminClaimRequestTableComponent},
+  {path:"userpolicies", component:UserpoliciesComponent}
+
 
 ];
 
