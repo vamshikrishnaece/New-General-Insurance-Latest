@@ -19,7 +19,9 @@ import { PolicypageComponent } from './policypage/policypage.component';
 import { PolicytypeComponent } from './policytype/policytype.component';
 import { RegisterComponent } from './register/register.component';
 import { RenewalpageComponent } from './renewalpage/renewalpage.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UserpoliciesComponent } from './userpolicies/userpolicies.component';
+import { UserpolicydetailsComponent } from './userpolicydetails/userpolicydetails.component';
 
 const routes: Routes = [
   {path:"", component:HomePageComponent},
@@ -39,12 +41,14 @@ const routes: Routes = [
   {path:"buy/type/makepayment", component:PaymentgatewayComponent},
   {path:"renew/type/makepayment", component:PaymentgatewayComponent},
   {path:"renew", component:RenewalpageComponent},
-  {path:"Claimhistory", component:ClaimhistoryComponent},
+  {path:"claimhistory", component:ClaimhistoryComponent},
   {path:"type", component:PolicytypeComponent},
   {path:"adminlogin", component:AdminLoginComponent},
   {path:"claimtable", component:ClaimTableComponent},
   {path:"adminclaimrequesttable", component:AdminClaimRequestTableComponent},
-  {path:"userpolicies", component:UserpoliciesComponent}
+  {path:"profile", component:UserpoliciesComponent},
+  {path:"login/forgot/reset", component:ResetPasswordComponent},
+  {path:"profile/:id",component:UserpolicydetailsComponent}
 
 
 ];

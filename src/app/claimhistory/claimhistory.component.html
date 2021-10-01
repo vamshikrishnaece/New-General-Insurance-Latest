@@ -1,4 +1,4 @@
-<div class="jumbotron" style="text-align: center;">
+<!-- <div class="jumbotron" style="text-align: center;">
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
@@ -7,7 +7,7 @@
                 <table class="table ">
                     <thead class="thead-dark">
                     <tr>
-                        <th>Claim Number</th>
+                        <th>Claim Request ID</th>
                         <th>Date</th>
                         <th>Approved/Not Approved</th>
                         <th>Amount</th>
@@ -41,4 +41,27 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
+
+
+
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Policy Number</th>
+        <th scope="col">Claim Request Created Date</th>
+        <th scope="col">Claim Amount</th>
+      </tr>
+
+    </thead>
+    <tbody>
+        <tr  *ngFor="let i of claimrequesttable">    
+        <td>{{i.policyNo}}</td>
+        <td>{{i.requestCreatedDate | date : 'dd/MM/yyyy'}}</td>
+        <td>{{i.claimAmount}}</td>
+      </tr>
+  
+    </tbody>
+  </table>

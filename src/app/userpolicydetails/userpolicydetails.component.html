@@ -1,29 +1,34 @@
 <div class="jumbotron" style="text-align: center;">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <h2 class="display-2 text-center">Policy Details</h2>
-                <hr>
-                <p>
-                    <label class="label label-default">Policy Number:</label>&nbsp;
-                    <label >Policy number will be displayed</label>
-                </p>
-                <p>
-                    <label class="label label-default">Vehicle Model:</label>&nbsp;
-                    <label >Vehicle Model will be displayed</label>
-                </p>
-                <p>
-                    <label class="label label-default">Registration Number:</label>&nbsp;
-                    <label >Registration will be displayed</label>
-                </p>
-                <p>
-                    <label class="label label-default">Claim Amount:</label>&nbsp;
-                    <label >Claim Amount will be displayed</label>
-                </p>
-                <p>
-                    <button type="button" class="btn btn-primary">Claim</button>&nbsp;&nbsp;
-                    <button type="button" class="btn btn-primary">Renew</button>
-                </p>
+            <h2 class="display-2">Policy Details</h2><hr>
+            <div class="col-md-7 offset-md-3">
+                <table class="table text-left">
+                    <thead>
+                        <tr>
+                            <td><b>Policy Number</b></td>
+                            <td>{{policyNoFromRoute}}</td>
+                        </tr>
+                        <tr>
+                            <td>Model</td>
+                            <td>{{model}}</td>
+                        </tr>
+                        <tr>
+                            <td>Registration Number</td>
+                            <td>{{registrationNumber}}</td>
+                        </tr>
+                        <tr>
+                            <td>Claim Amount</td>
+                            <td>{{premiumprice}}</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-primary" routerLink="/../../claim">
+                    Claim</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-primary" routerLink="/../../renew">
+                    Renew</button>
             </div>
         </div>
     </div>

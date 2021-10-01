@@ -1,30 +1,18 @@
-<p>admin-claim-request-table works!</p>
-
-<table class="table">
+<table class="table text-center">
     <thead>
       <tr>
-        <th scope="col">Claim Request Id</th>
-        <th scope="col">Claim Request Created Date</th>
-        <th scope="col">Policy Number</th>
-        <th scope="col">Reason</th>
-        <th scope="col">Claim Status</th>
-        <th scope="col">Claim Amount</th>
+        <th scope="col" class="text-center">Policy Number</th>
+        <th class="text-center">Policy Type</th>
       </tr>
-
-    </thead>
-    <tbody>
-        <!-- <tr  *ngFor="let i of claimrequesttabledata">
-       
-        <td>{{i.claimRequestId}}</td>
-        <td>{{i.requestCreatedDate}}</td>
+      <tr *ngFor="let i of policies">
         <td>{{i.policyNo}}</td>
-        <td>{{i.reason}}</td>
-        <td>{{i.claimStatus}}</td>
-        <td>1000</td>
-        <td><input type="button" class="btn btn-success" id="approve" value="Approve"   (click)="approve(i.claimRequestId ,'Approved')" /></td>
-        <td><input type="button" class="btn btn-danger" id="disapprove" value="Disapprove" (click)="approve(i.claimRequestId,'Disapproved' )"  /></td>
-      
-      </tr> -->
-  
-    </tbody>
+        <td>{{i.policyType}}</td>
+        <td><button type="button" class="btn btn-primary" (click)="getpolicies(i.policyNo)">
+          View Policy Details</button></td>
+      </tr>
+    </thead>
   </table>
+<div class="text-center">
+<button type="button" class="btn btn-secondary" routerLink="/../claimhistory">View Approved Claims</button>
+</div>
+<br>

@@ -26,4 +26,43 @@ export class HomePageComponent implements OnInit {
     }
   }
   }
+
+  Buy()
+  {
+    this.user = localStorage.getItem('email')
+    if(this.user==null)
+    {
+      this.router.navigateByUrl('login')
+    }
+    else
+    {
+      this.router.navigateByUrl('buy')
+    }
+  }
+
+  Renew()
+  {
+    this.user = localStorage.getItem('email')
+    if(this.user==null)
+    {
+      this.router.navigateByUrl('login')
+    }
+    else
+    {
+      this.router.navigateByUrl('renew')
+    }
+  }
+  
+  Claim()
+  {
+    this.user = localStorage.getItem('email')
+    if(this.user==null)
+    {
+      this.router.navigateByUrl('login')
+    }
+    else
+    {
+      this.router.navigateByUrl('claim')
+    }
+  }
 }

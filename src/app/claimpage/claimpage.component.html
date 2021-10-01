@@ -5,8 +5,14 @@
                 <h2 class="display-2 text-center">Insurance Claim</h2>
                 <hr>
                 <form class="form" [formGroup]="claimForm" (ngSubmit)="onSubmit()">
-                    <input type="number" placeholder="Policy Number" formControlName="PolicyNo" class="form-control"
-                        [ngClass]="{ 'is-invalid': submitted && f.PolicyNo.errors }">
+                    <!-- <input type="number" placeholder="Policy Number" formControlName="PolicyNo" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.PolicyNo.errors }"> -->
+                    <select name="PolicyNo" id="PolicyNo" class="form-select form-select-lg mb-3" 
+                    formControlName="PolicyNo" >
+                        <option value="" selected>Select One Policy Number</option>
+                        <option *ngFor="let i of allpolicies" value={{i.policyNo}}>{{i.policyNo}}</option>
+                    </select>
+                    
                     <div *ngIf="submitted && f.PolicyNo.errors" class="invalid-feedback">
                         <div *ngIf="f.PolicyNo.errors.required">Policy Number is required</div>
                     </div>
@@ -15,19 +21,16 @@
                      <div class="text-danger">
                         {{message}}
                      </div> 
-                        <!-- [ngClass]="{ 'is-invalid': submitted && f.ContactNo.errors }"
-                    <div *ngIf="submitted && f.mobilenumber.errors" class="invalid-feedback">
-                        <div *ngIf="f.ContactNo.errors!.required">Mobile Number is required</div>
-                    </div> -->
                     <br><br>
                     <label class="display-6">Reason to Claim Insurance</label><br>
                     <div class="dropdown">
                         <select name="reason" id="reason" formControlName="Reason"
-                            class="form-select form-select-lg mb-3">
-                            <option value="natural_disaster">Natural Disaster</option>
-                            <option value="man_made_disaster">Man-Made Disaster</option>
-                            <option value="road_accident">Road Accident</option>
-                            <option value="theft">Theft</option>
+                            class="form-select form-select-lg mb-3 dropdown">
+                            <option value="" selected>Select One Reason</option>
+                            <option value="Natural Disaster">Natural Disaster</option>
+                            <option value="Man Made Disaster">Man-Made Disaster</option>
+                            <option value="Road Accident">Road Accident</option>
+                            <option value="Theft">Theft</option>
                         </select>
                     </div>
 

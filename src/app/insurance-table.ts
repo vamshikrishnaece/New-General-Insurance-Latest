@@ -1,14 +1,14 @@
 export class InsuranceTable {
     
        
-        VechicleType!:string ;
-        Manufacturer!:string ;
-        Model!:string; 
-        DrivingLicense!:string; 
-        PurchaseDate!:Date;
-        RegistrationNo!:string; 
-        EngineNo!:string ;
-        ChassisNo!:string ;
-        UserId!:number;
+        vechicleType!:string ;
+        manufacturer!:string ;
+        model!:string; 
+        drivingLicense!:string; 
+        purchaseDate!:Date;
+        registrationNo!:string; 
+        engineNo!:string ;
+        chassisNo!:string ;
+        userId!:number;
        
 }

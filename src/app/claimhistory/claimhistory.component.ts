@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Params, Router } from '@angular/router';
+import { ClaimRequestTable } from '../claim-request-table';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-claimhistory',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClaimhistoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:UserService, private route:Router) { }
+  claimrequesttable!:ClaimRequestTable[];
+  user !: any;
+  userid !: number;
 
   ngOnInit(): void {
+    this.user = localStorage.getItem('email')
+    if (this.user != null) {
+      this.service.GetUserbyEmail(this.user).subscribe((param: Params) => {
+        this.userid = param['userId'];
+        this.service.GetClaimhistory(this.userid).subscribe((data)=>{
+          this.claimrequesttable = data;
+        })
+      }
+      )
+     }
+    // this.service.GetClaimhistory()
   }
 
 }

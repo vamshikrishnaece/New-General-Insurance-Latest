@@ -23,18 +23,30 @@
                 <div>
                     <form class="form" [formGroup]="TwheelerForm">
                         <div *ngIf="currDiv=='2wheeler'" style="text-align: left;">
-                            <label for="Manufacturer">Enter Bike Manufacturer</label>
-                            <input type="text" formControlName="Manufacturer" id="Manufacturer"
-                                placeholder="Enter Bike Manufacturer" class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && f.Manufacturer.errors }" />
+                            <label for="Manufacturer">Select Bike Manufacturer</label>
+                            <select name="bikemodel" id="bikemanufacturer" formControlName="Manufacturer" 
+                                class="form-select form-select-lg mb-3">
+                                <option value ="" selected>Select your bike manufacturer</option>
+                                <option value="Hero Motocorp">Hero Motocorp</option>
+                                <option value="Honda Motorcycle and Scooter">Honda Motorcycle and Scooter</option>
+                                <option value="TVS Motor">TVS Motor</option>
+                                <option value="Bajaj Auto">Bajaj Auto</option>
+                                <option value="Yamaha Motor">Yamaha Motor</option>
+                                <option value="Royal Enfield">Royal Enfield</option>
+                                <option value="suzuki Motorcycle">suzuki Motorcycle</option>
+                                <option value="Mahindra Two Wheeler">Mahindra Two Wheeler</option>
+                            </select>
+                            
                             <div *ngIf="submitted && f.Manufacturer.errors" class="invalid-feedback">
                                 <div *ngIf="f.Manufacturer.errors.required">Chassis Number is required
                                 </div>
                             </div><br />
 
                             <label for="Model">Enter Bike Model</label>
-                            <input type="text" formControlName="Model" placeholder="Enter Bike Model"
-                                class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Model.errors }" />
+                            <input type="text" formControlName="Model" id="Model"
+                                placeholder="Enter Bike Model" class="form-control"
+                                [ngClass]="{ 'is-invalid': submitted && f.Manufacturer.errors }" />
+                            
                             <div *ngIf="submitted && f.Model.errors" class="invalid-feedback">
                                 <div *ngIf="f.Model.errors.required">Bike Modelis required
 
@@ -80,7 +92,7 @@
                             </div><br>
 
                             <label for="PurchaseDate">Enter Purchase Date</label>
-                            <input type="text" formControlName="PurchaseDate" placeholder="Enter Purchase Date"
+                            <input type="date" formControlName="PurchaseDate" placeholder="Enter Purchase Date"
                                 class="form-control" [ngClass]="{ 'is-invalid': submitted && f.PurchaseDate.errors }" />
                             <div *ngIf="submitted && f.PurchaseDate.errors" class="invalid-feedback">
                                 <div *ngIf="f.PurchaseDate.errors.required">Purchase Date is required</div>
@@ -89,16 +101,28 @@
                         </div>
 
                     </form>
+                    
 
                     <form class="form" [formGroup]="FwheelerForm">
 
                         <div *ngIf="currDiv=='4wheeler'" style="text-align: left;">
-                            <label for="Manufacturer">Enter Car Manufacturer</label>
-                            <input type="text" formControlName="Manufacturer" placeholder="Enter car manufacturer"
-                                class="form-control"
-                                [ngClass]="{ 'is-invalid': submitted && ff.Manufacturer.errors }" />
+                            <label for="Manufacturer">Select Car Manufacturer</label>
+                            <select name="carmodel" id="carmodel" formControlName="Manufacturer"
+                                class="form-select form-select-lg mb-3">
+                                <option value ="" selected>Select your car manufacturer</option>
+                                <option value="Ford">Ford</option>
+                                <option value="hyundai">Hyundai</option>
+                                <option value="honda">Honda</option>
+                                <option value="Mahindra & Mahindra">Mahindra & Mahindra</option>
+                                <option value="Maruti Suzuki">Maruti Suzuki</option>
+                                <option value="Nissan">Nissan</option>
+                                <option value="Renault">Renault</option>
+                                <option value="Tata Motors">Tata Motors</option>
+                                <option value="Toyota">Toyota</option>
+                                <option value="Volkswagen">Volkswagen</option>
+                            </select>
                             <div *ngIf="submitted && ff.Manufacturer.errors" class="invalid-feedback">
-                                <div *ngIf="ff.Manufacturer.errors.required">Car Model is required</div>
+                                <div *ngIf="ff.Manufacturer.errors.required">Car Manufacturer is required</div>
                             </div><br />
 
                             <label for="Model">Enter Car Model</label>

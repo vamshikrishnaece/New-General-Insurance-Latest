@@ -24,7 +24,6 @@ export class RenewalpageComponent implements OnInit {
   submitted = false;
 
   ngOnInit(): void {
-    this.submitted = true;
 
     // To calculate the time difference of two dates
 
@@ -41,6 +40,7 @@ export class RenewalpageComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true;
 
     // stop here if form is invalid
     if (this.renewalform.invalid) {

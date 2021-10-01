@@ -7,10 +7,10 @@
                 <div class="card-body">
                     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                         <div class="form-group">
-                            
-                        <div class="text-danger">
-                            {{errormsg}}
-                        </div>
+
+                            <div class="text-danger">
+                                {{errormsg}}
+                            </div>
                             <label>Email</label>
                             <input type="text" formControlName="email" class="form-control"
                                 [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />

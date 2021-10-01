@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Params, Router } from '@angular/router';
+import { PolicyTable } from '../policy-table';
 import { UserService } from '../user.service';
 
 @Component({
@@ -8,8 +9,9 @@ import { UserService } from '../user.service';
   styleUrls: ['./userpolicies.component.css']
 })
 export class UserpoliciesComponent implements OnInit {
-user!:any;
-userid!:number;
+  user!:any;
+  userid!:number;
+policies !: PolicyTable[];
   constructor(private service:UserService , private route:Router) { }
 
   ngOnInit(): void {
@@ -20,12 +22,20 @@ userid!:number;
   
     this.service.GetUserbyEmail(this.user).subscribe((param: Params) => {
       console.log(param)
-      this.userid = param['id'];
-      
+      this.userid = param['userId'];
+      console.log(this.userid);
+    this.service.GetPoliciesByUserid(this.userid).subscribe((data)=>{
+      this.policies = data;
+    })
     }
     )
   }
 }
+
+  getpolicies(id : number)
+  {
+    this.route.navigateByUrl("profile/" + id);
+  }
 }
 
 

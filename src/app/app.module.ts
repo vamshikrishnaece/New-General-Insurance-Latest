@@ -27,6 +27,7 @@ import { RenewalpageComponent } from './renewalpage/renewalpage.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { ClaimTableComponent } from './claim-table/claim-table.component';
 import { AdminClaimRequestTableComponent } from './admin-claim-request-table/admin-claim-request-table.component';
+import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { AdminClaimRequestTableComponent } from './admin-claim-request-table/adm
     AdminLoginComponent,
     ClaimTableComponent,
     AdminClaimRequestTableComponent,
+    ResetPasswordComponent,
   ],
   imports: [
     BrowserModule,

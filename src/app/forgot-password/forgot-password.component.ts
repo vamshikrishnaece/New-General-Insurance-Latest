@@ -40,6 +40,8 @@ export class ForgotPasswordComponent implements OnInit {
       this.service.ForgotPassword(this.ForgotForm.value.email).subscribe((data)=>
       {
         this.code=data; 
+        console.log(this.code)
+        console.log(data)
       });
       this.show = true;
     }
@@ -52,14 +54,12 @@ export class ForgotPasswordComponent implements OnInit {
     console.log(this.ForgotForm.value.verificationCode)
     if(this.ForgotForm.value.verificationCode == this.code)
         {
-          console.log("Ok");
           this.show = false;
-          this.route.navigate([''])
+          this.route.navigate(['login/forgot/reset'])
         }
         else
         {
           this.message = "Please enter right code";
-          console.log("wrong")
           return;
         }
   }

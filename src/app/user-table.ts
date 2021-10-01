@@ -1,9 +1,9 @@
 export class UserTable {
-    Id!:number;
-    Name!: string;
-    Email!: string;
-    DOB!: Date;
-    ContactNo!: string;
-    Address!: string;
-    Password!: string;
+    userId!:number;
+    name!: string;
+    email!: string;
+    dob!: Date;
+    contactNo!: string;
+    address!: string;
+    password!: string;
 }

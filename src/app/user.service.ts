@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { AdminTable } from './admin-table';
 import { ClaimRequestTable } from './claim-request-table';
+import { ClaimTable } from './claim-table';
 import { InsuranceTable } from './insurance-table';
 import { Login } from './login';
 import { PolicyTable } from './policy-table';
@@ -13,7 +14,7 @@ import { UserTable } from './user-table';
 })
 export class UserService {
   public subject=new Subject<boolean>();
-  private url = "http://localhost:8603/api/";
+  private url = "http://localhost:65113/api/";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -45,6 +46,11 @@ export class UserService {
     return this.client.get<UserTable>(this.url+"usertables/" + email);
   }
 
+  UpdateUserPassword(id : number, password: string, usertable : UserTable)
+  {
+    return this.client.put<UserTable>(this.url + "userTables/"+ id +"/" + password, usertable);
+  }
+
   ClaimRequest(claimrequest:ClaimRequestTable)
   {
     return this.client.post<ClaimRequestTable>(this.url+"ClaimRequestTables", JSON.stringify(claimrequest), this.httpOptions)
@@ -60,6 +66,11 @@ export class UserService {
     return this.client.post<InsuranceTable>(this.url+"InsuranceTables", JSON.stringify(insurancetable), this.httpOptions)
   }
 
+  GetInsuranceData(id:number)
+  {
+    return this.client.get<InsuranceTable>(this.url + "InsuranceTables"+"/"+id);
+  }
+
   BuyPolicyType(policytable:PolicyTable)
   {
     return this.client.post<PolicyTable>(this.url+"PolicyTables", JSON.stringify(policytable), this.httpOptions)
@@ -69,11 +80,15 @@ export class UserService {
   {
     return this.client.get<PolicyTable>(this.url + "PolicyTables/"+ id);
   }
+
+  GetPoliciesByUserid(id:number)
+  {
+    return this.client.get<PolicyTable[]>(this.url + "UserProfile/" + id);
+  }
+
   UpdatePolicyStatus(id : number, status : string, policyform : PolicyTable)
   {
     return this.client.put<PolicyTable>(this.url + "PolicyTables/"+ id +"/" + status, policyform);
-    console.log("In service")
-    console.log(status)
   }
 
   ForgotPassword(email:string)
@@ -99,14 +114,20 @@ export class UserService {
     return this.client.get<ClaimRequestTable>(this.url + "ClaimRequestTables"+"/"+id);
   }
 
-
-
   UpdateClaimStatus(id:number,status:string,  claimrequesttable:ClaimRequestTable)
   {
     return this.client.put<ClaimRequestTable>(this.url + "ClaimRequestTables/"+id+"/"+status , claimrequesttable );
   }
 
+  ClaimTableDetails(claimtable:ClaimTable)
+  {
+    return this.client.post<ClaimTable>(this.url+"ClaimTables", JSON.stringify(claimtable), this.httpOptions)
+  }
 
+  GetClaimhistory(id:number)
+  {
+    return this.client.get<ClaimRequestTable[]>(this.url + "ClaimTables"+"/"+id);
+  }
 
 }
 

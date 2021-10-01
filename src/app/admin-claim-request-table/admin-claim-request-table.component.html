@@ -13,17 +13,16 @@
 
     </thead>
     <tbody>
-        <tr  *ngFor="let i of claimrequesttabledata">
-        <!-- <th scope="row">1</th> -->
+        <tr  *ngFor="let i of claimrequesttabledata">    
         <td>{{i.claimRequestId}}</td>
-        <td>{{i.requestCreatedDate}}</td>
+        <td>{{i.requestCreatedDate | date :'dd/MM/yyyy'}}</td>
         <td>{{i.policyNo}}</td>
         <td>{{i.reason}}</td>
         <td>{{i.claimStatus}}</td>
-        <td>1000</td>
-        <td><input type="button" class="btn btn-success" id="approve" value="Approve"   (click)="approve(i.claimRequestId ,'Approved')" /></td>
-        <td><input type="button" class="btn btn-danger" id="disapprove" value="Disapprove" (click)="approve(i.claimRequestId,'Disapproved' )"  /></td>
-      
+        <td>{{i.claimAmount}}</td>
+        <td><input type="button" class="btn btn-success" id="approve" value="Approve" (click)="buttonclick(i.claimRequestId ,'Approved', i.claimAmount)" /></td>
+        <td><input type="button" class="btn btn-danger" id="disapprove" value="Disapprove" (click)="buttonclick(i.claimRequestId,'Disapproved', i.claimAmount)"  /></td>
+
       </tr>
   
     </tbody>

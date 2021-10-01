@@ -1,10 +1,13 @@
-<h1>HIiiiiiiii</h1>
+
 
 <div class="jumbotron">
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
-                <h2 class="display-2 text-center">Login</h2>
+                <h2 class="display-2 text-center">Admin Login</h2>
+                <div class="text-center text-danger">
+                    <h4>Access only for admin, Else try user login</h4>
+                </div>
                 <hr>
                 <div class="card-body">
                     <form [formGroup]="adminloginForm" (ngSubmit)="onSubmit()">
@@ -35,15 +38,9 @@
 
                         <div class="text-center">
                             <button class="btn btn-primary mr-1">Login</button>&nbsp;&nbsp;
-                            <button class="btn btn-secondary" routerLink="forgot" type="button" (click)="onForgot()">
-                                Forgot Password</button>
+                            
                         </div>
                         <br>
-                        <div class="text-center">
-                            <button class="btn btn-primary mr-1" routerLink="/../register">Register</button>
-                        </div>
-
-
                     </form>
                 </div>
                 <a routerLink="" style="float: right;"><button class="btn btn-success">Back Home</button></a>

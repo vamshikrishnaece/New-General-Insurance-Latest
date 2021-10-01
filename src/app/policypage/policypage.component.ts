@@ -30,7 +30,11 @@ export class PolicypageComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private route: Router, private service: UserService) { }
 
   ngOnInit(): void {
-    this.email = localStorage.getItem('email');
+    this.email = localStorage.getItem('email')
+    if(this.email==null)
+    {
+      this.route.navigateByUrl('../login')
+    }
 
     this.service.GetUserbyEmail(this.email).subscribe((params: Params) => {
       this.userid = params.userId;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-paymentgateway',
@@ -9,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class PaymentgatewayComponent implements OnInit {
   paymentform!:FormGroup;
   submitted=false;
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder, private route:Router) { }
 
   ngOnInit(): void {
   this.paymentform=this.fb.group(
@@ -32,6 +33,9 @@ securitycode:['',[Validators.required ,Validators.minLength(3)]],
   submitform()
   {
     console.log(this.paymentform.value);
+    this.route.navigate(['/..'])
   }
+
+  
 
 }

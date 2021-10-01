@@ -1,13 +1,12 @@
 <nav class="navbar navbar-inverse" style="justify-content:left;">
-  <div class="nav navbar-nav" style="float: left;">
+  <div class="nav navbar-nav" style="float: left; width: 100%;">
       <a class="navbar-brand" href="#">
         <img src="../../assets/8.PNG" style="float: left;" width="30" height="30" alt="" >
-        <ul class="nav navbar-nav" style="float: center;">
-          <li><a routerLink="">LTI INSURANCE</a></li>
-        </ul>
+        <h3 class="text-center" style="margin-top: 0px;">
+          <a style=" font-family: Arial, Helvetica, sans-serif; color: white" routerLink="">
+            LTI INSURANCE</a></h3>
       </a>
   </div>
-  
 </nav>
 
 <nav class="navbar navbar-inverse">
@@ -19,13 +18,12 @@
       <span class="icon-bar"></span>
     </button>
   </div>
-  <div *ngIf="!message" class="collapse navbar-expand-lg navbar-d navbar-collapse" id="myNavbar">
+  <div *ngIf="!message && !admin" class="collapse navbar-expand-lg navbar-d navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
       <li><a routerLink="login">Login</a></li>
       <li><a routerLink="/register">Register</a></li>
       <li><a routerLink="contactus">Contact</a></li>
       <li><a routerLink="about">About Us</a></li>
-      <li><a routerLink="help">Help</a></li>
       <li><a routerLink="faq">FAQ</a></li>
       <li></li>
     </ul>
@@ -33,18 +31,32 @@
       <li><a routerLink="adminlogin">Admin Login</a></li>
     </ul>
   </div>
-  <div *ngIf="message" class="collapse navbar-expand-lg navbar-d navbar-collapse" id="myNavbar">
+  <div *ngIf="message && !admin" class="collapse navbar-expand-lg navbar-d navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav">
+      
       <li><a href="" (click)="logout()">Logout</a></li>
+      <li><a routerLink="profile">My Profile</a></li>
       <li><a routerLink="contactus">Contact</a></li>
       <li><a routerLink="about">About Us</a></li>
-      <li><a routerLink="help">Help</a></li>
       <li><a routerLink="faq">FAQ</a></li>
       <li></li>
     </ul>
     <ul class="nav navbar-nav" style="float: right;">
       <li><a routerLink="adminlogin">Admin Login</a></li>
     </ul>
+  </div>
+  <div *ngIf="admin && !message" class="collapse navbar-expand-lg navbar-d navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+      <li><a href="" (click)="logout()">Logout</a></li>
+      <li><a routerLink="adminclaimrequesttable">Admin Dashboard</a></li>
+      <li><a routerLink="contactus">Contact</a></li>
+      <li><a routerLink="about">About Us</a></li>
+      <li><a routerLink="faq">FAQ</a></li>
+      <li></li>
+    </ul>
+    <!-- <ul class="nav navbar-nav" style="float: right;">
+      <li><a routerLink="adminlogin">Admin Login</a></li>
+    </ul> -->
   </div>
 </div>
 </nav>

@@ -1,4 +1,5 @@
 export class PolicyTable {
+    policyNo !: number;
     applicationId !: number;
     policyType !: string;
     period !:string; 

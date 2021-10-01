@@ -6,6 +6,7 @@ export class ClaimRequestTable {
     //Mobileno!:number;
     requestCreatedDate!:Date;
     claimStatus!:string;
+    claimAmount!:number;
     //status!:string;
     
    

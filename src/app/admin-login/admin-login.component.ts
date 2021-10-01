@@ -33,7 +33,6 @@ export class AdminLoginComponent implements OnInit {
     if (this.adminloginForm.invalid) {
       return;
     }
-  console.log("onsubmit");
     this.service.AdminLogin(this.adminloginForm.value).subscribe((data)=>
       {
         console.log("subscribe");
@@ -41,13 +40,14 @@ export class AdminLoginComponent implements OnInit {
           localStorage.setItem('email',this.adminloginForm.value.email);
           this.service.subject.next(true);
           this.route.navigateByUrl('adminclaimrequesttable');
-          
-         
       },
       error=>{this.errormsg="Login Failed";}
       );
+      
     // display form values on success
   }
+
+
 
   onForgot() {
     this.submitted = false;
