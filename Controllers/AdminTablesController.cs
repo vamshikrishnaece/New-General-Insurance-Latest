@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using GeneralInusranceAPI.Models;
+using GeneralInsurance.Models;
 
-namespace GeneralInusranceAPI.Controllers
+namespace GeneralInusrance.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

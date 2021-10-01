@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using GeneralInusranceAPI.Models;
+using GeneralInsurance.Models;
 
 namespace GeneralInsurance.Controllers
 {
@@ -24,7 +24,8 @@ namespace GeneralInsurance.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ClaimRequestTable>>> GetClaimRequestTable()
         {
-            return await _context.ClaimRequestTable.ToListAsync();
+            return Ok(_context.ClaimRequestTable.Where(x => x.ClaimStatus == "Pending"));
+            //return await _context.ClaimRequestTable.ToListAsync();
         }
 
         // GET: api/ClaimRequestTables/5
@@ -52,14 +53,14 @@ namespace GeneralInsurance.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}/{status}")]
-        public async Task<IActionResult> PutClaimRequestTable(int id, string status  , ClaimRequestTable claimRequestTable)
+        public async Task<IActionResult> PutClaimRequestTable(int id, string status, ClaimRequestTable claimRequestTable)
         {
             var claimRequestdata = _context.ClaimRequestTable.Where(x => x.ClaimRequestId == id).FirstOrDefault();
             if (claimRequestdata == null)
             {
                 return BadRequest();
             }
-           // claimRequestTable.ClaimStatus = status;
+            // claimRequestTable.ClaimStatus = status;
             claimRequestdata.ClaimStatus = status;
             //claimRequestdata = claimRequestTable;
             _context.Entry(claimRequestdata).State = EntityState.Modified;
@@ -97,7 +98,7 @@ namespace GeneralInsurance.Controllers
         //        claimRequestdata .= claimRequestTable;
 
         //    }
-            
+
         //    _context.Entry(claimRequestTable).State = EntityState.Modified;
         //    try
         //    {

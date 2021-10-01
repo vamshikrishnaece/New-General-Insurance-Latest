@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using GeneralInusranceAPI.Models;
+using GeneralInsurance.Models;
 namespace GeneralInsurance.Controllers
 {
     [Route("api/[controller]")]
@@ -50,7 +50,7 @@ namespace GeneralInsurance.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<PolicyTable>> GetPolicyTable(int id)
         {
-
+            //return Ok(_context.UserTable.Select(x=>x.InsuranceTable.)
             //return Ok(_context.UserTable.Select(x=>x.InsuranceTable.Select
             //(y=>y.PolicyTable.Where(z=>z.PolicyNo==id).Select
             //    (z=>new { x.ContactNo }))));
