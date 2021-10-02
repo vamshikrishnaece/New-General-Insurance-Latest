@@ -13,18 +13,7 @@ export class HomePageComponent implements OnInit {
   constructor(private service: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    if (this.user === null)
-      return;
-    else{
-    this.user = localStorage.getItem('email')
-    if (this.user != null) {
-      this.username = this.user;
-      this.service.GetUserbyEmail(this.user).subscribe((param: Params) => {
-        this.username = param['name'];
-      }
-      )
-    }
-  }
+   
   }
 
   Buy()

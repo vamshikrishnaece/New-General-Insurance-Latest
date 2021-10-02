@@ -14,7 +14,7 @@ import { UserTable } from './user-table';
 })
 export class UserService {
   public subject=new Subject<boolean>();
-  private url = "http://localhost:65113/api/";
+  private url = "http://localhost:5000/api/";
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -96,6 +96,11 @@ export class UserService {
     return this.client.get<number>(this.url + "Forgot/" + email)
   }
 
+  ContactUs(SenderMail:string, Body:string )
+  {
+    return this.client.get(this.url + "Forgot/" + SenderMail +"/"+ Body );
+  }
+
 
   // UpdatePolicyStatus(id : number, status : string)
   // {
@@ -114,7 +119,7 @@ export class UserService {
     return this.client.get<ClaimRequestTable>(this.url + "ClaimRequestTables"+"/"+id);
   }
 
-  UpdateClaimStatus(id:number,status:string,  claimrequesttable:ClaimRequestTable)
+  UpdateClaimStatus(id:number, status:string,  claimrequesttable:ClaimRequestTable)
   {
     return this.client.put<ClaimRequestTable>(this.url + "ClaimRequestTables/"+id+"/"+status , claimrequesttable );
   }

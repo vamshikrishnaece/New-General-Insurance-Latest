@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Params, Router, RouterLink } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,29 +9,42 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private route: Router) { }
+
   message = false;
   email !: any;
   admin = false;
+  username: string = "";
+  user: any;
+
+  constructor(private service: UserService, private router: Router) { }
+
 
   ngOnInit(): void {
     this.email = localStorage.getItem('email')
-    if(this.email!=null)
-    {
-      if(this.email == "admin@gmail.com")
-      {
+    if (this.email != null) {
+      if (this.email == "admin@gmail.com") {
         this.admin = true;
         this.message = false;
       }
-      else
-        {
+      else {
         this.message = true;
         this.admin = false;
       }
     }
+    if (this.user === null)
+      return;
+    else {
+      this.user = localStorage.getItem('email')
+      if (this.user != null) {
+        this.username = this.user;
+        this.service.GetUserbyEmail(this.user).subscribe((param: Params) => {
+          this.username = param['name'];
+        }
+        )
+      }
+    }
   }
-  logout()
-  {
+  logout() {
     localStorage.removeItem('email');
     localStorage.clear();
   }

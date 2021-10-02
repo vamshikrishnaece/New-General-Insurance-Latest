@@ -168,7 +168,7 @@
                             </div><br>
 
                             <label for="PurchaseDate">Enter Purchase Date</label>
-                            <input type="text" formControlName="PurchaseDate" placeholder="Enter Purchase Date"
+                            <input type="date" formControlName="PurchaseDate" placeholder="Enter Purchase Date"
                                 class="form-control"
                                 [ngClass]="{ 'is-invalid': submitted && ff.PurchaseDate.errors }" />
                             <div *ngIf="submitted && ff.PurchaseDate.errors" class="invalid-feedback">

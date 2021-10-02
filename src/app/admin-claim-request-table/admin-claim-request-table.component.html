@@ -19,7 +19,7 @@
         <td>{{i.policyNo}}</td>
         <td>{{i.reason}}</td>
         <td>{{i.claimStatus}}</td>
-        <td>{{i.claimAmount}}</td>
+        <td><input type="number" id="amount" [defaultValue]=(i.claimAmount)></td>
         <td><input type="button" class="btn btn-success" id="approve" value="Approve" (click)="buttonclick(i.claimRequestId ,'Approved', i.claimAmount)" /></td>
         <td><input type="button" class="btn btn-danger" id="disapprove" value="Disapprove" (click)="buttonclick(i.claimRequestId,'Disapproved', i.claimAmount)"  /></td>
 

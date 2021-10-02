@@ -22,6 +22,7 @@ export class ClaimhistoryComponent implements OnInit {
         this.userid = param['userId'];
         this.service.GetClaimhistory(this.userid).subscribe((data)=>{
           this.claimrequesttable = data;
+          console.log(data)
         })
       }
       )

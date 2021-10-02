@@ -37,8 +37,9 @@ const routes: Routes = [
   {path:"about", component:AboutusComponent},
   {path:"faq", component:FAQComponent},
   {path:"buy/type", component:PolicytypeComponent},
-  {path:"buy/:appid", component:PolicytypeComponent},
-  {path:"buy/type/makepayment", component:PaymentgatewayComponent},
+  {path:"buy/:appid/:finalAmount", component:PolicytypeComponent},
+  {path:"buy/:amount", component:PaymentgatewayComponent},
+  
   {path:"renew/type/makepayment", component:PaymentgatewayComponent},
   {path:"renew", component:RenewalpageComponent},
   {path:"claimhistory", component:ClaimhistoryComponent},

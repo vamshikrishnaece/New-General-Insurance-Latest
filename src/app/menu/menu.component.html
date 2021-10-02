@@ -1,7 +1,7 @@
-<nav class="navbar navbar-inverse" style="justify-content:left;">
+<nav class="navbar navbar-inverse " style="justify-content:left;">
   <div class="nav navbar-nav" style="float: left; width: 100%;">
       <a class="navbar-brand" href="#">
-        <img src="../../assets/8.PNG" style="float: left;" width="30" height="30" alt="" >
+        <img src="../../assets/Screenshot1.png" style="float: left;" width="30" height="30" alt="" >
         <h3 class="text-center" style="margin-top: 0px;">
           <a style=" font-family: Arial, Helvetica, sans-serif; color: white" routerLink="">
             LTI INSURANCE</a></h3>
@@ -42,7 +42,7 @@
       <li></li>
     </ul>
     <ul class="nav navbar-nav" style="float: right;">
-      <li><a routerLink="adminlogin">Admin Login</a></li>
+      <li style="color: whitesmoke;"><a routerLink="profile" >Welcome {{username}}</a></li>
     </ul>
   </div>
   <div *ngIf="admin && !message" class="collapse navbar-expand-lg navbar-d navbar-collapse" id="myNavbar">
@@ -54,9 +54,9 @@
       <li><a routerLink="faq">FAQ</a></li>
       <li></li>
     </ul>
-    <!-- <ul class="nav navbar-nav" style="float: right;">
-      <li><a routerLink="adminlogin">Admin Login</a></li>
-    </ul> -->
+    <ul class="nav navbar-nav" style="float: right;">
+      <li style="color: whitesmoke;"><a routerLink="adminclaimrequesttable" >Welcome Admin</a></li>
+    </ul>
   </div>
 </div>
 </nav>
