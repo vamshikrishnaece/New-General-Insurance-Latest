@@ -1,48 +1,41 @@
 <div class="jumbotron" style="text-align: center;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <h2 class="display-2 text-center">Insurance Claim</h2>
-                <hr>
-                <form class="form" [formGroup]="claimForm" (ngSubmit)="onSubmit()">
-                    <!-- <input type="number" placeholder="Policy Number" formControlName="PolicyNo" class="form-control"
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h2 class="display-2 text-center">Insurance Claim</h2>
+        <hr>
+        <form class="form" [formGroup]="claimForm" (ngSubmit)="onSubmit()">
+          <!-- <input type="number" placeholder="Policy Number" formControlName="PolicyNo" class="form-control"
                         [ngClass]="{ 'is-invalid': submitted && f.PolicyNo.errors }"> -->
-                    <select name="PolicyNo" id="PolicyNo" class="form-select form-select-lg mb-3" 
-                    formControlName="PolicyNo" >
-                        <option value="" selected>Select One Policy Number</option>
-                        <option *ngFor="let i of allpolicies" value={{i.policyNo}}>{{i.policyNo}}</option>
-                    </select>
-                    
-                    <div *ngIf="submitted && f.PolicyNo.errors" class="invalid-feedback">
-                        <div *ngIf="f.PolicyNo.errors.required">Policy Number is required</div>
-                    </div>
-                    <br>
-                    <input type="text" placeholder="Mobile Number" id="ContactNo" class="form-control"  >
-                     <div class="text-danger">
-                        {{message}}
-                     </div> 
-                    <br><br>
-                    <label class="display-6">Reason to Claim Insurance</label><br>
-                    <div class="dropdown">
-                        <select name="reason" id="reason" formControlName="Reason"
-                            class="form-select form-select-lg mb-3 dropdown">
-                            <option value="" selected>Select One Reason</option>
-                            <option value="Natural Disaster">Natural Disaster</option>
-                            <option value="Man Made Disaster">Man-Made Disaster</option>
-                            <option value="Road Accident">Road Accident</option>
-                            <option value="Theft">Theft</option>
-                        </select>
-                    </div>
-
-                    <br>
-                    <button type="submit" class="btn btn-primary">Claim</button>
-
-
-
-                </form>
-                <br>
-                <a routerLink="" style="float: right;"><button class="btn btn-success">Back Home</button></a>
-            </div>
-        </div>
+          <select name="PolicyNo" id="PolicyNo" class="form-select form-select-lg mb-3" formControlName="PolicyNo">
+            <option value="" selected>Select One Policy Number</option>
+            <option *ngFor="let i of allpolicies" value={{i.policyNo}}>{{i.policyNo}}</option>
+          </select>
+          <div *ngIf="submitted && f.PolicyNo.errors" class="invalid-feedback">
+            <div *ngIf="f.PolicyNo.errors.required">Policy Number is required</div>
+          </div>
+          <br>
+          <input type="text" placeholder="Mobile Number" id="ContactNo" class="form-control">
+          <div class="text-danger">
+            {{message}}
+          </div>
+          <br><br>
+          <label class="display-6">Reason to Claim Insurance</label><br>
+          <div class="dropdown">
+            <select name="reason" id="reason" formControlName="Reason" class="form-select form-select-lg mb-3 dropdown">
+              <option value="" selected>Select One Reason</option>
+              <option value="Natural Disaster">Natural Disaster</option>
+              <option value="Man Made Disaster">Man-Made Disaster</option>
+              <option value="Road Accident">Road Accident</option>
+              <option value="Theft">Theft</option>
+            </select>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Claim</button>
+        </form>
+        <br>
+        <a routerLink="" style="float: right;"><button class="btn btn-success">Back Home</button></a>
+      </div>
     </div>
+  </div>
 </div>

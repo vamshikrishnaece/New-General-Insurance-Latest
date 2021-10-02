@@ -7,13 +7,14 @@ import { UserService } from '../user.service';
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
+
 export class HomePageComponent implements OnInit {
   user: any;
   username: string ="New User";
+  
   constructor(private service: UserService, private router: Router) { }
-
+  
   ngOnInit(): void {
-   
   }
 
   Buy()
@@ -41,7 +42,7 @@ export class HomePageComponent implements OnInit {
       this.router.navigateByUrl('renew')
     }
   }
-  
+
   Claim()
   {
     this.user = localStorage.getItem('email')

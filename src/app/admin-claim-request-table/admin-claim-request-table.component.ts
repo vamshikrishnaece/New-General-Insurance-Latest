@@ -2,7 +2,6 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Params, Router } from '@angular/router';
-
 import { ClaimRequestTable } from '../claim-request-table';
 import { ClaimTable } from '../claim-table';
 import { PolicyTable } from '../policy-table';
@@ -13,6 +12,7 @@ import { UserService } from '../user.service';
   templateUrl: './admin-claim-request-table.component.html',
   styleUrls: ['./admin-claim-request-table.component.css']
 })
+
 export class AdminClaimRequestTableComponent implements OnInit {
   claimrequesttabledata!: ClaimRequestTable[];
   claimrequestdata!: ClaimRequestTable;
@@ -20,16 +20,13 @@ export class AdminClaimRequestTableComponent implements OnInit {
   claimtableform!: FormGroup;
   temp !: number;
   constructor(private fb: FormBuilder, private service: UserService, private route: Router) {
-
   }
 
   ngOnInit(): void {
-
     this.claimtableform = this.fb.group({
       claimRequestId: [],
       claimAmount: []
     })
-
     this.service.GetClaimRequestDetails().subscribe((params) => {
       this.claimrequesttabledata = params;
       for (let i = 0; i < this.claimrequesttabledata.length; i++) {
@@ -37,26 +34,20 @@ export class AdminClaimRequestTableComponent implements OnInit {
           //this.claimrequesttabledata[i].claimAmount = data.paymentAmount;
           this.temp= data.paymentAmount
           console.log(this.temp)
-
           if (this.claimrequesttabledata[i].reason == "Natural Disaster")
             this.claimrequesttabledata[i].claimAmount = this.temp - (this.temp * 0.4)
           else if (this.claimrequesttabledata[i].reason == "Man Made Disaster")
             this.claimrequesttabledata[i].claimAmount = this.temp - (this.temp * 0.3)
           else if (this.claimrequesttabledata[i].reason == "Road Accident")
             this.claimrequesttabledata[i].claimAmount = this.temp - (this.temp * 0.2)
-
           else if (this.claimrequesttabledata[i].reason == "Theft")
             this.claimrequesttabledata[i].claimAmount = this.temp - (this.temp * 0.1)
-
           this.claimtableform.value.claimAmount = this.claimrequesttabledata[i].claimAmount;
           console.log(this.claimrequesttabledata)
         })
       }
     });
-
-
   }
-
 
   reloadPage() {
     setTimeout(() => {
@@ -67,7 +58,6 @@ export class AdminClaimRequestTableComponent implements OnInit {
   buttonclick(id: number, status: string, claimamount: number) {
     console.log(id,status,claimamount)
     for (let i = 0; i < this.claimrequesttabledata.length; i++) {
-
       if (this.claimrequesttabledata[i].claimRequestId == id) {
         this.claimrequestdata = this.claimrequesttabledata[i];
         console.log(this.claimrequestdata)
@@ -78,23 +68,17 @@ export class AdminClaimRequestTableComponent implements OnInit {
     this.claimrequestdata.claimAmount = parseInt(amount)
     console.log(amount)
     console.log(this.claimrequestdata)
-
     this.service.UpdateClaimStatus(id, status, this.claimrequestdata).subscribe((data) => {
       console.log(data);
     });
-
     console.log(this.claimtableform.value)
-
     this.claimtableform.value.claimRequestId = id;
-
-
     console.log(this.claimtableform.value)
     this.service.ClaimTableDetails(this.claimtableform.value).subscribe((data) => {
       console.log(data);
     });
     console.log(this.claimtable)
-this.reloadPage();
+    this.reloadPage();
   }
   //reload page
-
 }

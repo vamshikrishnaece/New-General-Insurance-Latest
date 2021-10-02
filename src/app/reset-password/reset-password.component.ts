@@ -10,17 +10,17 @@ import { MustMatch } from '../_helpers/must-match.validator';
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.css']
 })
+
 export class ResetPasswordComponent implements OnInit {
  
-
   constructor(private formBuilder: FormBuilder , private service:UserService , private route:Router) { }
+  
   submitted = false;
   resetform !: FormGroup
   user !: any;
   errormsg !: string;
-
+  
   ngOnInit(): void {
-
     this.resetform = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -30,7 +30,7 @@ export class ResetPasswordComponent implements OnInit {
     });
   }
   get f() { return this.resetform.controls; }
-
+  
   onSubmit()
   {
     this.submitted = true;
@@ -41,7 +41,7 @@ export class ResetPasswordComponent implements OnInit {
       this.update();
     }
   }
-
+ 
   update()
   {
     this.service.GetUserbyEmail(this.resetform.value.email).subscribe((data)=>{
@@ -54,7 +54,5 @@ export class ResetPasswordComponent implements OnInit {
     },
     error=>{this.errormsg = "Invalid email"}
     )
-
-    
   }
 }

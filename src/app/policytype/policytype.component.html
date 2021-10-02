@@ -1,30 +1,29 @@
 <div class="jumbotron">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <h2 class="display-3" style="text-align: center;">Insurance Policy Plans</h2>
-                <hr>
-                <form class="form" [formGroup]="policyPlanForm" (ngSubmit)="onSubmit()">
-                    <label>Choose your Plan</label><br>
-                    <select name="PolicyType" id="PolicyType" formControlName="PolicyType"
-                        class="form-select form-select-lg mb-3">
-                        <option value="Third Party Liability">Third Party Liability</option>
-                        <option value="Comprehensive">Comprehensive</option>
-                    </select>
-                    <br>
-                    <label>Choose your Duration</label><br>
-                    <select name="Period" id="Period" formControlName="Period"
-                        class="form-select form-select-lg mb-3">
-                        <option value="1 Year">One Year</option>
-                        <option value="2 Year">Two Year</option>
-                        <option value="3 Year">Three Year</option>
-                    </select>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary mr-1" >Make Payment</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h2 class="display-3" style="text-align: center;">Insurance Policy Plans</h2>
+        <hr>
+        <form class="form" [formGroup]="policyPlanForm" (ngSubmit)="onSubmit()">
+          <label>Choose your Plan</label><br>
+          <select name="PolicyType" id="PolicyType" formControlName="PolicyType"
+            class="form-select form-select-lg mb-3">
+            <option value="Third Party Liability">Third Party Liability</option>
+            <option value="Comprehensive">Comprehensive</option>
+          </select>
+          <br>
+          <label>Choose your Duration</label><br>
+          <select name="Period" id="Period" formControlName="Period" class="form-select form-select-lg mb-3">
+            <option value="1 Year">One Year</option>
+            <option value="2 Year">Two Year</option>
+            <option value="3 Year">Three Year</option>
+          </select>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary mr-1">Make Payment</button>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>

@@ -1,18 +1,18 @@
 <table class="table text-center">
-    <thead>
-      <tr>
-        <th scope="col" class="text-center">Policy Number</th>
-        <th class="text-center">Policy Type</th>
-      </tr>
-      <tr *ngFor="let i of policies">
-        <td>{{i.policyNo}}</td>
-        <td>{{i.policyType}}</td>
-        <td><button type="button" class="btn btn-primary" (click)="getpolicies(i.policyNo)">
+  <thead>
+    <tr>
+      <th scope="col" class="text-center">Policy Number</th>
+      <th class="text-center">Policy Type</th>
+    </tr>
+    <tr *ngFor="let i of policies">
+      <td>{{i.policyNo}}</td>
+      <td>{{i.policyType}}</td>
+      <td><button type="button" class="btn btn-primary" (click)="getpolicies(i.policyNo)">
           View Policy Details</button></td>
-      </tr>
-    </thead>
-  </table>
+    </tr>
+  </thead>
+</table>
 <div class="text-center">
-<button type="button" class="btn btn-secondary" routerLink="/../claimhistory">View Approved Claims</button>
+  <button type="button" class="btn btn-secondary" routerLink="/../claimhistory">View Approved Claims</button>
 </div>
 <br>

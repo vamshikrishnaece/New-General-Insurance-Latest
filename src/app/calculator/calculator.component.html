@@ -1,85 +1,79 @@
 <div class="jumbotron" style="text-align: center;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <h2 class="display-2 text-center">Premium Calculator</h2>
-                <br>
-                <form [formGroup]="calculateForm" class="form">
-                    <input type="button" value="Two Wheeler" id="twowheeler" formControlName="twowheeler" #twowheeler
-                        class="btn btn-primary btn-lg " (click)="ShowDiv('2wheeler')" />
-                    &nbsp;&nbsp;
-                    <input type="button" id="fourwheeler" formControlName="fourwheeler" #fourwheeler
-                        class="btn btn-primary btn-lg" (click)="ShowDiv('4wheeler')">
-                    <br>
-                    <br>
-                    <hr>
-                    <div *ngIf="currDiv == '2wheeler'">
-                        <h2 class="display-5 text-center">Premium Calculator for 2 Wheeler</h2>
-                        <br>
-                        <form [formGroup]="premium2Form" class="form-group">
-                            
-                            <label>Please select Bike Manufacturer</label>
-                            <select name="bikemodel" id="bikemodel" formControlName="bike_Model" 
-                                class="form-select form-select-lg mb-3">
-                                <option value ="" selected>Select your bike manufacterer</option>
-                                <option value="Hero Motocorp">Hero Motocorp</option>
-                                <option value="Honda Motorcycle and Scooter">Honda Motorcycle and Scooter</option>
-                                <option value="TVS Motor">TVS Motor</option>
-                                <option value="Bajaj Auto">Bajaj Auto</option>
-                                <option value="Yamaha Motor">Yamaha Motor</option>
-                                <option value="Royal Enfield">Royal Enfield</option>
-                                <option value="suzuki Motorcycle">suzuki Motorcycle</option>
-                                <option value="Mahindra Two Wheeler">Mahindra Two Wheeler</option>
-                            </select>
-                            <br>
-                            <input type="number" id="age" placeholder="Bike Age" class="form-control" formControlName="bike_Age">
-                            <br>
-                            <button type="submit" (click)="calculate2wheeler()" class="btn btn-primary">Calculate
-                                Premium</button>
-                        </form>
-                    </div>
-                    <div *ngIf="currDiv == '4wheeler'">
-                        <h2 class="display-5 text-center">Premium Calculator for 4 Wheeler</h2>
-                        <br>
-                        <form [formGroup]="premium4Form" class="form-group">
-                            <label>Please select car Manufacturer</label>
-                            <select name="carmodel" id="carmodel" formControlName="car_Model"
-                                class="form-select form-select-lg mb-3">
-                                <option value ="" selected>Select your car manufacterer</option>
-                                <option value="Ford">Ford</option>
-                                <option value="hyundai">Hyundai</option>
-                                <option value="honda">Honda</option>
-                                <option value="Mahindra & Mahindra">Mahindra & Mahindra</option>
-                                <option value="Maruti Suzuki">Maruti Suzuki</option>
-                                <option value="Nissan">Nissan</option>
-                                <option value="Renault">Renault</option>
-                                <option value="Tata Motors">Tata Motors</option>
-                                <option value="Toyota">Toyota</option>
-                                <option value="Volkswagen">Volkswagen</option>
-                            </select>
-                            <br>
-                            <input type="number" id="age" placeholder="Car Age" class="form-control" formControlName="car_Age">
-                            <br>
-                            <button type="submit" (click)="calculate4wheeler()" class="btn btn-primary">Calculate
-                                Premium</button>
-                        </form>
-                    </div>
-                </form>
-
-                <div *ngIf="premiumcalculator==true" class="text-center">
-                    
-                    <h3>
-                        <kbd>Your Premium Insurance Amount is
-                        {{premiumprice}}</kbd>
-                    </h3>
-
-                    <h3>Your Premium Amount is</h3>
-                    <h3>{{premiumprice}}</h3>
-                
-                </div>
-                <br>
-                <a routerLink="" style="float: right;"><button class="btn btn-success">Back Home</button></a><br>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h2 class="display-2 text-center">Premium Calculator</h2>
+        <br>
+        <form [formGroup]="calculateForm" class="form">
+          <input type="button" value="Two Wheeler" id="twowheeler" formControlName="twowheeler" #twowheeler
+            class="btn btn-primary btn-lg " (click)="ShowDiv('2wheeler')" />
+          &nbsp;&nbsp;
+          <input type="button" id="fourwheeler" formControlName="fourwheeler" #fourwheeler
+            class="btn btn-primary btn-lg" (click)="ShowDiv('4wheeler')">
+          <br>
+          <br>
+          <hr>
+          <div *ngIf="currDiv == '2wheeler'">
+            <h2 class="display-5 text-center">Premium Calculator for 2 Wheeler</h2>
+            <br>
+            <form [formGroup]="premium2Form" class="form-group">
+              <label>Please select Bike Manufacturer</label>
+              <select name="bikemodel" id="bikemodel" formControlName="bike_Model"
+                class="form-select form-select-lg mb-3">
+                <option value="" selected>Select your bike manufacterer</option>
+                <option value="Hero Motocorp">Hero Motocorp</option>
+                <option value="Honda Motorcycle and Scooter">Honda Motorcycle and Scooter</option>
+                <option value="TVS Motor">TVS Motor</option>
+                <option value="Bajaj Auto">Bajaj Auto</option>
+                <option value="Yamaha Motor">Yamaha Motor</option>
+                <option value="Royal Enfield">Royal Enfield</option>
+                <option value="suzuki Motorcycle">suzuki Motorcycle</option>
+                <option value="Mahindra Two Wheeler">Mahindra Two Wheeler</option>
+              </select>
+              <br>
+              <input type="number" id="age" placeholder="Bike Age" class="form-control" formControlName="bike_Age">
+              <br>
+              <button type="submit" (click)="calculate2wheeler()" class="btn btn-primary">Calculate
+                Premium</button>
+            </form>
+          </div>
+          <div *ngIf="currDiv == '4wheeler'">
+            <h2 class="display-5 text-center">Premium Calculator for 4 Wheeler</h2>
+            <br>
+            <form [formGroup]="premium4Form" class="form-group">
+              <label>Please select car Manufacturer</label>
+              <select name="carmodel" id="carmodel" formControlName="car_Model" class="form-select form-select-lg mb-3">
+                <option value="" selected>Select your car manufacterer</option>
+                <option value="Ford">Ford</option>
+                <option value="hyundai">Hyundai</option>
+                <option value="honda">Honda</option>
+                <option value="Mahindra & Mahindra">Mahindra & Mahindra</option>
+                <option value="Maruti Suzuki">Maruti Suzuki</option>
+                <option value="Nissan">Nissan</option>
+                <option value="Renault">Renault</option>
+                <option value="Tata Motors">Tata Motors</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Volkswagen">Volkswagen</option>
+              </select>
+              <br>
+              <input type="number" id="age" placeholder="Car Age" class="form-control" formControlName="car_Age">
+              <br>
+              <button type="submit" (click)="calculate4wheeler()" class="btn btn-primary">Calculate
+                Premium</button>
+            </form>
+          </div>
+        </form>
+        <div *ngIf="premiumcalculator==true" class="text-center">
+          <h3>
+            <kbd>Your Premium Insurance Amount is
+              {{premiumprice}}</kbd>
+          </h3>
+          <h3>Your Premium Amount is</h3>
+          <h3>{{premiumprice}}</h3>
         </div>
+        <br>
+        <a routerLink="" style="float: right;"><button class="btn btn-success">Back Home</button></a><br>
+      </div>
     </div>
+  </div>
 </div>

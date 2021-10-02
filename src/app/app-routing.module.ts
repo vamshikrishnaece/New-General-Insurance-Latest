@@ -22,7 +22,6 @@ import { RenewalpageComponent } from './renewalpage/renewalpage.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { UserpoliciesComponent } from './userpolicies/userpolicies.component';
 import { UserpolicydetailsComponent } from './userpolicydetails/userpolicydetails.component';
-
 const routes: Routes = [
   {path:"", component:HomePageComponent},
   {path:"register", component : RegisterComponent},
@@ -39,7 +38,6 @@ const routes: Routes = [
   {path:"buy/type", component:PolicytypeComponent},
   {path:"buy/:appid/:finalAmount", component:PolicytypeComponent},
   {path:"buy/:amount", component:PaymentgatewayComponent},
-  
   {path:"renew/type/makepayment", component:PaymentgatewayComponent},
   {path:"renew", component:RenewalpageComponent},
   {path:"claimhistory", component:ClaimhistoryComponent},
@@ -50,12 +48,11 @@ const routes: Routes = [
   {path:"profile", component:UserpoliciesComponent},
   {path:"login/forgot/reset", component:ResetPasswordComponent},
   {path:"profile/:id",component:UserpolicydetailsComponent}
-
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

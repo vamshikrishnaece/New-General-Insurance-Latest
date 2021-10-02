@@ -1,50 +1,40 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
 @Component({
   selector: 'app-calculator',
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.css']
 })
 export class CalculatorComponent implements OnInit {
-
   currDiv: string = '';
   price!: number;
   age!: number;
   premiumprice !: number;
   premiumcalculator : boolean = false;
-
-
   ShowDiv(divVal: string) {
     this.currDiv = divVal;
   }
-
   calculateForm = new FormGroup({
     twowheeler: new FormControl("Two Wheeler"),
     fourwheeler: new FormControl("Four Wheeler")
   })
   constructor() { }
-
   premium2Form = new FormGroup({
     bike_Model: new FormControl(),
     bike_Age: new FormControl()
   })
-
   premium4Form = new FormGroup({
     car_Model: new FormControl(),
     car_Age: new FormControl()
   })
-
   ngOnInit(): void {
   }
-
   get bike_Model() {
     return this.premium2Form.get("bike_Model");
   }
   get bike_Age() {
     return this.premium2Form.get("bike_Age");
   }
-
   calculate2wheeler() {
     if (this.premium2Form.value.bike_Model == "Hero Motocorp")
       this.price = 50000
@@ -62,11 +52,8 @@ export class CalculatorComponent implements OnInit {
       this.price = 80000
     else if (this.premium2Form.value.bike_Model == "Mahindra Two Wheeler")
       this.price = 55000
-
       this.calculatePremium(this.price);
-
   }
-
   calculate4wheeler() {
     if (this.premium4Form.value.car_Model == "Ford")
       this.price = 500000
@@ -88,10 +75,8 @@ export class CalculatorComponent implements OnInit {
       this.price = 700000
     else if (this.premium4Form.value.car_Model == "Volkswagen")
       this.price = 100000
-
       this.calculatePremium(this.price);
   }
-
   calculatePremium(price: number) {
     this.age = parseInt((document.getElementById("age") as HTMLInputElement).value);
     if (this.age < 1) {
@@ -119,7 +104,6 @@ export class CalculatorComponent implements OnInit {
   get fourwheeler() {
     return this.calculateForm.get("fourwheeler");
   }
-
   get car_Model() {
     return this.premium4Form.get("car_Model");
   }

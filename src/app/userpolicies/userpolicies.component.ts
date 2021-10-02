@@ -8,18 +8,19 @@ import { UserService } from '../user.service';
   templateUrl: './userpolicies.component.html',
   styleUrls: ['./userpolicies.component.css']
 })
+
 export class UserpoliciesComponent implements OnInit {
   user!:any;
   userid!:number;
-policies !: PolicyTable[];
-  constructor(private service:UserService , private route:Router) { }
+  policies !: PolicyTable[];
 
+  constructor(private service:UserService , private route:Router) { }
+  
   ngOnInit(): void {
     if (this.user === null)
     return;
   else{
   this.user = localStorage.getItem('email')
-  
     this.service.GetUserbyEmail(this.user).subscribe((param: Params) => {
       console.log(param)
       this.userid = param['userId'];
@@ -31,14 +32,8 @@ policies !: PolicyTable[];
     )
   }
 }
-
   getpolicies(id : number)
   {
     this.route.navigateByUrl("profile/" + id);
   }
 }
-
-
-
-  
-

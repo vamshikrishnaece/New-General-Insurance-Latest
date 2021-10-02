@@ -7,13 +7,14 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './paymentgateway.component.html',
   styleUrls: ['./paymentgateway.component.css']
 })
+
 export class PaymentgatewayComponent implements OnInit {
   paymentform!: FormGroup;
   submitted = false;
   amount!:number;
 
   constructor(private fb: FormBuilder, private route: Router,private activatedroute : ActivatedRoute) { }
-
+  
   ngOnInit(): void {
     this.paymentform = this.fb.group(
       {
@@ -21,13 +22,9 @@ export class PaymentgatewayComponent implements OnInit {
         cardno: ['', [Validators.required]],
         expirydate: ['', [Validators.required]],
         securitycode: ['', [Validators.required, Validators.minLength(3)]],
-
       });
       this.amount = parseInt(this.activatedroute.snapshot.params['amount'])
-
-
   }
-
   get f() {
     return this.paymentform.controls;
   }
@@ -36,7 +33,4 @@ export class PaymentgatewayComponent implements OnInit {
     console.log(this.paymentform.value);
     this.route.navigate(['/..'])
   }
-
-
-
 }

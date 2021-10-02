@@ -1,134 +1,120 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="jumbotron">
-    <div class=".container-fluid">
-        <div class="row">
-            <div class="col-md-4 offset-md-4">
-                <div class="secure text-center margin-bottom-md">
-                    <br>
-                    <h2 class="display-2">
-                        <span class="fs1 icon" aria-hidden="true" data-icon=""></span>
-                        Payment Gateway
-                    </h2>
-
-                    <hr>
-                    <br>
-                    <div class="accepted-cards">
-                        <ul class="list-inline">
-                            <li><img src="https://www.uxfordev.com/demo/1.0.6/assets/images/payment-icon-set/icons/visa-curved-32px.png"
-                                    alt="Visa"></li>
-                            <li><img src="https://www.uxfordev.com/demo/1.0.6/assets/images/payment-icon-set/icons/mastercard-curved-32px.png"
-                                    alt="MasterCard"></li>
-                            <li><img src="https://www.uxfordev.com/demo/1.0.6/assets/images/payment-icon-set/icons/maestro-curved-32px.png"
-                                    alt="Maestro"></li>
-                            <li><img src="https://www.uxfordev.com/demo/1.0.6/assets/images/payment-icon-set/icons/american-express-curved-32px.png"
-                                    alt="American Express"></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <form [formGroup]="paymentform" class="form-horizontal" (ngSubmit)="submitform()">
-                    <div class="form-group">
-                        <label id="name">Name on Card</label>
-
-                        <input type="text" id="name" name="name" class="form-control" placeholder="Your name"
-                            formControlName="name">
-                        <!--  <p class="help-block">As it appears on the card</p>-->
-
-                    </div>
-
-                    <div *ngIf="!f.name?.valid && (f.name?.dirty ||f. name?.touched)" class="error text-danger">
-                        <div *ngIf="f.name!.errors!.required">
-                            Name is required
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label id="cardno">Card Number </label>
-
-                        <input type="text" class="form-control" placeholder="••••  ••••  ••••  ••••" id="cardno"
-                            name="cardno" formControlName="cardno">
-                        <!-- <p class="help-block">The 16 digits on the front of your credit card.</p> -->
-
-                    </div>
-
-                    <div *ngIf="!f.cardno?.valid && (f.cardno?.dirty ||f. cardno?.touched)" class="error text-danger">
-                        <div *ngIf="f.cardno!.errors!.required">
-                            Card Number is required
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label id="expirydate">Expiration Date</label>
-                        <div class=" form-inline">
-                            <select class="form-control" id="expirydate" name="expirydate" formControlName="expirydate"
-                                style="width: 120px;">
-                                <option value="01">01</option>
-                                <option value="01">02</option>
-                                <option value="01">03</option>
-                                <option value="01">04</option>
-                                <option value="01">05</option>
-                                <option value="01">06</option>
-                                <option value="01">07</option>
-                                <option value="01">08</option>
-                            </select>
-                            <span class="divider">/</span>
-                            <select class="form-control" id="expirydate" name="expirydate" formControlName="expirydate"
-                                style="width: 120px;">
-                                <option value="01">2015</option>
-                                <option value="01">2016</option>
-                                <option value="01">2017</option>
-                                <option value="01">2018</option>
-                                <option value="01">2019</option>
-                                <option value="01">2020</option>
-                                <option value="01">2021</option>
-                                <option value="01">2022</option>
-                            </select>
-                            <!-- <p class="help-block">The date your credit card expires. Find this on the front of your credit card.</p> -->
-                        </div>
-                    </div>
-
-                    <div *ngIf="!f.expirydate?.valid && (f.expirydate?.dirty ||f. expirydate?.touched)"
-                        class="error text-danger">
-                        <div *ngIf="f.expirydate!.errors!.required">
-                            Expiry Date is required
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label id="securitycode">Security Code</label>
-
-                        <input type="text" class="form-control" id="securitycode" name="securitycode" placeholder="CVV"
-                            formControlName="securitycode">
-                        <!--<p class="help-block">The last 3 digits displayed on the back of your credit card.</p> -->
-
-                    </div>
-
-                    <div *ngIf="!f.securitycode?.valid && (f.securitycode?.dirty ||f. securitycode?.touched)"
-                        class="error text-danger">
-                        <div *ngIf="f.securitycode!.errors!.required">
-                            Security code is required
-                        </div>
-                    </div>
-
-                    <div class="action-wrapper text-center">
-                        <h4 class="notes margin-bottom-sm">
-                            Making payment of <span class="text-stronger">{{amount}} amount</span>
-                        </h4>
-                        <!--<div class="action-btn">
+  <div class=".container-fluid">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <div class="secure text-center margin-bottom-md">
+          <br>
+          <h2 class="display-2">
+            <span class="fs1 icon" aria-hidden="true" data-icon=""></span>
+            Payment Gateway
+          </h2>
+          <hr>
+          <br>
+          <div class="accepted-cards">
+            <ul class="list-inline">
+              <li><img
+                  src="https://www.uxfordev.com/demo/1.0.6/assets/images/payment-icon-set/icons/visa-curved-32px.png"
+                  alt="Visa"></li>
+              <li><img
+                  src="https://www.uxfordev.com/demo/1.0.6/assets/images/payment-icon-set/icons/mastercard-curved-32px.png"
+                  alt="MasterCard"></li>
+              <li><img
+                  src="https://www.uxfordev.com/demo/1.0.6/assets/images/payment-icon-set/icons/maestro-curved-32px.png"
+                  alt="Maestro"></li>
+              <li><img
+                  src="https://www.uxfordev.com/demo/1.0.6/assets/images/payment-icon-set/icons/american-express-curved-32px.png"
+                  alt="American Express"></li>
+            </ul>
+          </div>
+        </div>
+        <form [formGroup]="paymentform" class="form-horizontal" (ngSubmit)="submitform()">
+          <div class="form-group">
+            <label id="name">Name on Card</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="Your name"
+              formControlName="name">
+            <!--  <p class="help-block">As it appears on the card</p>-->
+          </div>
+          <div *ngIf="!f.name?.valid && (f.name?.dirty ||f. name?.touched)" class="error text-danger">
+            <div *ngIf="f.name!.errors!.required">
+              Name is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label id="cardno">Card Number </label>
+            <input type="text" class="form-control" placeholder="••••  ••••  ••••  ••••" id="cardno" name="cardno"
+              formControlName="cardno">
+            <!-- <p class="help-block">The 16 digits on the front of your credit card.</p> -->
+          </div>
+          <div *ngIf="!f.cardno?.valid && (f.cardno?.dirty ||f. cardno?.touched)" class="error text-danger">
+            <div *ngIf="f.cardno!.errors!.required">
+              Card Number is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label id="expirydate">Expiration Date</label>
+            <div class=" form-inline">
+              <select class="form-control" id="expirydate" name="expirydate" formControlName="expirydate"
+                style="width: 120px;">
+                <option value="01">01</option>
+                <option value="01">02</option>
+                <option value="01">03</option>
+                <option value="01">04</option>
+                <option value="01">05</option>
+                <option value="01">06</option>
+                <option value="01">07</option>
+                <option value="01">08</option>
+              </select>
+              <span class="divider">/</span>
+              <select class="form-control" id="expirydate" name="expirydate" formControlName="expirydate"
+                style="width: 120px;">
+                <option value="01">2015</option>
+                <option value="01">2016</option>
+                <option value="01">2017</option>
+                <option value="01">2018</option>
+                <option value="01">2019</option>
+                <option value="01">2020</option>
+                <option value="01">2021</option>
+                <option value="01">2022</option>
+              </select>
+              <!-- <p class="help-block">The date your credit card expires. Find this on the front of your credit card.</p> -->
+            </div>
+          </div>
+          <div *ngIf="!f.expirydate?.valid && (f.expirydate?.dirty ||f. expirydate?.touched)" class="error text-danger">
+            <div *ngIf="f.expirydate!.errors!.required">
+              Expiry Date is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label id="securitycode">Security Code</label>
+            <input type="text" class="form-control" id="securitycode" name="securitycode" placeholder="CVV"
+              formControlName="securitycode">
+            <!--<p class="help-block">The last 3 digits displayed on the back of your credit card.</p> -->
+          </div>
+          <div *ngIf="!f.securitycode?.valid && (f.securitycode?.dirty ||f. securitycode?.touched)"
+            class="error text-danger">
+            <div *ngIf="f.securitycode!.errors!.required">
+              Security code is required
+            </div>
+          </div>
+          <div class="action-wrapper text-center">
+            <h4 class="notes margin-bottom-sm">
+              Making payment of <span class="text-stronger">{{amount}} amount</span>
+            </h4>
+            <!--<div class="action-btn">
             <button class="btn btn-success btn-info"    >
                 Make Payment
                 <i class="fa fa-chevron-right"></i>
             </button>
         </div>-->
-
-                        <div>
-                            <input type="submit" [disabled]="!paymentform.valid" class="btn btn-primary mr-1 btn-lg" />
-                        </div>
-
-                        <br>
-                        <br>
-                    </div>
-                </form>
+            <div>
+              <input type="submit" [disabled]="!paymentform.valid" class="btn btn-primary mr-1 btn-lg" />
             </div>
-        </div>
+            <br>
+            <br>
+          </div>
+        </form>
+      </div>
     </div>
+  </div>
 </div>

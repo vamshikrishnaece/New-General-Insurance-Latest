@@ -7,9 +7,8 @@ import { UserService } from '../user.service';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
+
 export class MenuComponent implements OnInit {
-
-
   message = false;
   email !: any;
   admin = false;
@@ -17,8 +16,7 @@ export class MenuComponent implements OnInit {
   user: any;
 
   constructor(private service: UserService, private router: Router) { }
-
-
+  
   ngOnInit(): void {
     this.email = localStorage.getItem('email')
     if (this.email != null) {
@@ -44,9 +42,9 @@ export class MenuComponent implements OnInit {
       }
     }
   }
+  
   logout() {
     localStorage.removeItem('email');
     localStorage.clear();
   }
-
 }

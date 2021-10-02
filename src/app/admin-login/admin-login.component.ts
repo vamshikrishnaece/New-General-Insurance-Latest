@@ -8,27 +8,22 @@ import { UserService } from '../user.service';
   templateUrl: './admin-login.component.html',
   styleUrls: ['./admin-login.component.css']
 })
+
 export class AdminLoginComponent implements OnInit {
   adminloginForm!: FormGroup;
   submitted = false;
   errormsg!:string;
   constructor(private formBuilder: FormBuilder , private service:UserService , private route:Router) { }
-
   ngOnInit(): void {
-
-
     this.adminloginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       Adminpassword: ['', [Validators.required, Validators.minLength(6)]],
-
     });
-
   }
   get f() { return this.adminloginForm.controls; }
+
   onSubmit() {
-
     this.submitted = true;
-
     // stop here if form is invalid
     if (this.adminloginForm.invalid) {
       return;
@@ -43,16 +38,11 @@ export class AdminLoginComponent implements OnInit {
       },
       error=>{this.errormsg="Login Failed";}
       );
-      
     // display form values on success
   }
-
-
-
+  
   onForgot() {
     this.submitted = false;
     this.adminloginForm.reset();
   }
-
-
 }

@@ -42,30 +42,23 @@
         </div>
     </div>
 </div> -->
-
-
-
-
-
 <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Policy Number</th>
-        <th scope="col">Claim Request Id</th>
-        <th scope="col">Claim Request Created Date</th>
-        <th scope="col">Claim Amount</th>
-        <th scope="col">Claim Status</th>
-      </tr>
-
-    </thead>
-    <tbody>
-        <tr  *ngFor="let i of claimrequesttable">    
-        <td>{{i.policyNo}}</td>
-        <td>{{i.claimRequestId}}</td>
-        <td>{{i.requestCreatedDate | date : 'dd/MM/yyyy'}}</td>
-        <td>{{i.claimAmount}}</td>
-        <td>{{i.claimStatus}}</td>
-      </tr>
-  
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">Policy Number</th>
+      <th scope="col">Claim Request Id</th>
+      <th scope="col">Claim Request Created Date</th>
+      <th scope="col">Claim Amount</th>
+      <th scope="col">Claim Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of claimrequesttable">
+      <td>{{i.policyNo}}</td>
+      <td>{{i.claimRequestId}}</td>
+      <td>{{i.requestCreatedDate | date : 'dd/MM/yyyy'}}</td>
+      <td>{{i.claimAmount}}</td>
+      <td>{{i.claimStatus}}</td>
+    </tr>
+  </tbody>
+</table>

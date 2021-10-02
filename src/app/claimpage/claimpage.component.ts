@@ -10,8 +10,8 @@ import { UserService } from '../user.service';
   templateUrl: './claimpage.component.html',
   styleUrls: ['./claimpage.component.css']
 })
-export class ClaimpageComponent implements OnInit {
 
+export class ClaimpageComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private service: UserService, private route: Router) { }
   claimForm !: FormGroup;
   submitted = false;
@@ -49,9 +49,7 @@ export class ClaimpageComponent implements OnInit {
   onSubmit() {
     var contact =
       ((document.getElementById("ContactNo") as HTMLInputElement).value);
-
     this.submitted = true;
-
     // stop here if form is invalid
     if (this.claimForm.invalid) {
       return;
@@ -63,14 +61,11 @@ export class ClaimpageComponent implements OnInit {
       else {
         this.claimForm.value.PolicyNo = parseInt((document.getElementById("PolicyNo") as HTMLInputElement).value);
         this.service.ClaimRequest(this.claimForm.value).subscribe((data) => { },
-        
-
           error => { this.errormsg = "Invalid policy number"; }
         );
         this.route.navigate(['/../claimhistory']);
       }
     },
-
       error => { this.errormsg = "Invalid policy mobile numer"; }
     );
   }
