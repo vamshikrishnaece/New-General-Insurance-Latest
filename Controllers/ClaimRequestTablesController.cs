@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using GeneralInsurance.Models;
+using GeneralInsuranceAPI.Models;
 
 namespace GeneralInsurance.Controllers
 {
@@ -24,8 +24,8 @@ namespace GeneralInsurance.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ClaimRequestTable>>> GetClaimRequestTable()
         {
-            return Ok(_context.ClaimRequestTable.Where(x => x.ClaimStatus == "Pending"));
-            //return await _context.ClaimRequestTable.ToListAsync();
+           return Ok(_context.ClaimRequestTable.Where(x => x.ClaimStatus == "Pending"));
+           // return await _context.ClaimRequestTable.ToListAsync();
         }
 
         // GET: api/ClaimRequestTables/5

@@ -1,4 +1,4 @@
-﻿using GeneralInsurance.Models;
+﻿using GeneralInsuranceAPI.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace GeneralInsurance.Controllers
+namespace GeneralInsuranceAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -28,8 +28,8 @@ namespace GeneralInsurance.Controllers
                 return NotFound();
             }
 
-            return Ok(_context.PolicyTable.Where(x => x.Application.User == user));
-
+            //return Ok(_context.PolicyTable.Where(x => x.Application.User == user));
+            return Ok(_context.PolicyTable.Where(x => x.Application.UserId == id && x.PolicyStatus == "Active"));
 
             ////return Ok((_context.PolicyTable.Where(x => x.Application.User.UserId == id)));
             //return Ok(_context.UserTable.Where(x=>x.Email==email).Select(x=>x.Name));

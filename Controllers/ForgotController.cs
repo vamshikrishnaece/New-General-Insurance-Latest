@@ -13,6 +13,7 @@ namespace GeneralInsurance.Controllers
     public class ForgotController : ControllerBase
     {
         [HttpGet("{To}")]
+      
         public IActionResult SendMail(string To)
         {
             string from = "testemailforinsurance@gmail.com";
@@ -55,6 +56,31 @@ namespace GeneralInsurance.Controllers
                 }
             }
             return str;
+        }
+
+        [HttpGet("{To}/{Body}")]
+
+        public IActionResult SendMail(string To, string Body)
+        {
+            string from = "testemailforinsurance@gmail.com";
+            string Subject = "Thank you for contacting us";
+            MailMessage mail = new MailMessage(from, To);
+            mail.Subject = Subject;
+            mail.Body = Body;
+
+            //Attachment attachment = new Attachment(@"");
+            //mail.Attachments.Add(attachment);
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+
+            client.Credentials = new System.Net.NetworkCredential()
+            {
+                UserName = "testemailforinsurance@gmail.com",
+                Password = "Abcd@123"
+
+            };
+            client.EnableSsl = true;
+            client.Send(mail);
+            return Ok();
         }
     }
 }
