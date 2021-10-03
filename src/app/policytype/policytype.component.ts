@@ -4,12 +4,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { UserService } from '../user.service';
- 
+
 @Component({
   selector: 'app-policytype',
   templateUrl: './policytype.component.html',
   styleUrls: ['./policytype.component.css']
 })
+
 export class PolicytypeComponent implements OnInit {
   policyPlanForm!: FormGroup;
   submitted = false;
@@ -19,10 +20,12 @@ export class PolicytypeComponent implements OnInit {
   myFormattedDate  = this.pipe.transform(this.now, 'yyyy-MM-dd');
   estimatedamount !: number;
   PaymentAmount!: number;
- 
+
   constructor(private formBuilder: FormBuilder, private activatedroute : ActivatedRoute, 
+    
+    
     private service : UserService, private route : Router) { }
- 
+
   ngOnInit(): void {
     this.appid = parseInt(this.activatedroute.snapshot.params['appid'])
     this.estimatedamount = parseInt(this.activatedroute.snapshot.params['finalAmount'])
@@ -38,13 +41,10 @@ export class PolicytypeComponent implements OnInit {
     });
   }
   get f() { return this.policyPlanForm.controls; }
- 
   
- 
   onSubmit() {
     console.log(this.f.Period.value)
     this.submitted = true;
- 
     // stop here if form is invalid
     if (this.policyPlanForm.invalid) {
       return;
@@ -77,10 +77,6 @@ export class PolicytypeComponent implements OnInit {
       this.service.BuyPolicyType(this.policyPlanForm.value).subscribe((data)=>
       {
       });
-
     }
- 
-  
   }
- 
 }

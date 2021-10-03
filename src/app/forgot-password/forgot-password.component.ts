@@ -8,6 +8,7 @@ import { UserService } from '../user.service';
   templateUrl: './forgot-password.component.html',
   styleUrls: ['./forgot-password.component.css']
 })
+
 export class ForgotPasswordComponent implements OnInit {
   ForgotForm!:FormGroup;
   submitted =false;
@@ -15,9 +16,9 @@ export class ForgotPasswordComponent implements OnInit {
   show = false;
   message !: string;
   code !: number;
-
   constructor(private formBuilder: FormBuilder, private service:UserService, private route:Router) { }
   title='recaptcha';
+
   ngOnInit(): void {
     this.ForgotForm = this.formBuilder.group({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -25,12 +26,10 @@ export class ForgotPasswordComponent implements OnInit {
     });
     this.sitekey="6Lf9kIQcAAAAAAcywsqbvMIWoYldhKYFjXumwTAN";
   }
-
   get f() { return this.ForgotForm.controls; }
 
   onSubmit() {
     this.submitted = true;
-
     // stop here if form is invalid
     if (this.ForgotForm.value.email==null) {
       return;
@@ -45,7 +44,6 @@ export class ForgotPasswordComponent implements OnInit {
       });
       this.show = true;
     }
-
   }
 
   verify()

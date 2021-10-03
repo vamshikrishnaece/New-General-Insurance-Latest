@@ -10,43 +10,40 @@ import { UserService } from '../user.service';
   templateUrl: './renewalpage.component.html',
   styleUrls: ['./renewalpage.component.css']
 })
+
 export class RenewalpageComponent implements OnInit {
   renewalform!: FormGroup;
   message !: string;
   policytable!: PolicyTable;
   formatteddate !: any;
   pipe = new DatePipe('en-US');
+  
   constructor(private fb: FormBuilder, private service: UserService, private route: Router) { }
+  
   today = new Date()
   year !: number;
   text !: string;
   policystatus !: string;
   submitted = false;
-
+  
   ngOnInit(): void {
-
     // To calculate the time difference of two dates
-
-
     this.renewalform = this.fb.group({
       policyno: ['', [Validators.required]],
       mobileno: ['', [Validators.required]],
       email: ['', [Validators.required]]
     })
-
   }
   get f() {
     return this.renewalform.controls;
   }
-
+  
   onSubmit() {
     this.submitted = true;
-
     // stop here if form is invalid
     if (this.renewalform.invalid) {
       return;
     }
-
     var contact = this.f.mobileno.value;
     this.service.GetContact(this.renewalform.value.policyno).subscribe((data) => {
       if (data[0] != contact) {
@@ -81,20 +78,12 @@ export class RenewalpageComponent implements OnInit {
     });
   }
 }
-
-
-
-
-
-
-
 // import { DatePipe } from '@angular/common';
 // import { Component, OnInit } from '@angular/core';
 // import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { Params, Router } from '@angular/router';
 // import { PolicyTable } from '../policy-table';
 // import { UserService } from '../user.service';
-
 // @Component({
 //   selector: 'app-renewalpage',
 //   templateUrl: './renewalpage.component.html',
@@ -114,27 +103,20 @@ export class RenewalpageComponent implements OnInit {
 //   today = new Date()
 //   year !: number;
 //   text !: string;
-
 //   submitted = false;
 //   ngOnInit(): void {
 //     this.submitted = true;
-
 //     // To calculate the time difference of two dates
-
-
 //     this.renewalform = this.fb.group({
 //       policyno: ['', [Validators.required]],
 //       mobileno: ['', [Validators.required]],
 //       email: ['', [Validators.required]]
 //     })
-
 //   }
 //   get f() {
 //     return this.renewalform.controls;
 //   }
-
 //   onSubmit() {
-
 //     // stop here if form is invalid
 //     if (this.renewalform.invalid) {
 //       return;
@@ -170,10 +152,8 @@ export class RenewalpageComponent implements OnInit {
 //           else {
 //             this.text = "Your policy is still active. You can renew it ";
 //           }
-
 //         });
 //       }
 //     });
 //   }
 // }
-

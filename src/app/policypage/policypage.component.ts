@@ -5,12 +5,13 @@ import { Params, Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { UserTable } from '../user-table';
 import { UserService } from '../user.service';
- 
+
 @Component({
   selector: 'app-policypage',
   templateUrl: './policypage.component.html',
   styleUrls: ['./policypage.component.css']
 })
+
 export class PolicypageComponent implements OnInit {
   buyInsuranceForm!: FormGroup;
   FwheelerForm!: FormGroup;
@@ -27,13 +28,13 @@ export class PolicypageComponent implements OnInit {
   today = new Date()
   formatteddate !: any;
   pipe = new DatePipe('en-US');
- 
- 
   currDiv: string = '';
+
   ShowDiv(s: string) {
     this.buttontouched = true;
     this.currDiv = s;
   }
+
   constructor(private formBuilder: FormBuilder, private route: Router, private service: UserService) { }
  
   ngOnInit(): void {
@@ -42,11 +43,9 @@ export class PolicypageComponent implements OnInit {
     {
       this.route.navigateByUrl('../login')
     }
- 
     this.service.GetUserbyEmail(this.email).subscribe((params: Params) => {
       this.userid = params.userId;
     });
- 
     this.FwheelerForm = this.formBuilder.group({
       Manufacturer: ['', [Validators.required]],
       Model: ['', [Validators.required]],
@@ -70,10 +69,9 @@ export class PolicypageComponent implements OnInit {
       UserId: new FormControl()
     });
   }
- 
   get ff() { return this.FwheelerForm.controls }
   get f() { return this.TwheelerForm.controls; }
- 
+  
   calculate2wheeler() {
     if (this.TwheelerForm.value.Manufacturer == "Hero Motocorp")
       this.amount = 50000
@@ -91,11 +89,9 @@ export class PolicypageComponent implements OnInit {
       this.amount = 80000
     else if (this.TwheelerForm.value.Manufacturer == "Mahindra Two Wheeler")
       this.amount = 55000
- 
       this.calculatePremium(this.amount, this.TwheelerForm.value.PurchaseDate);
- 
   }
- 
+  
   calculate4wheeler() {
     if (this.FwheelerForm.value.Manufacturer == "Ford")
       this.amount = 500000
@@ -117,13 +113,11 @@ export class PolicypageComponent implements OnInit {
       this.amount = 700000
     else if (this.FwheelerForm.value.Manufacturer == "Volkswagen")
       this.amount = 100000
- 
       this.calculatePremium(this.amount, this.FwheelerForm.value.PurchaseDate);
       console.log(this.FwheelerForm.value.PurchaseDate)
   }
- 
+  
   calculatePremium(amount: number, buyingDate:Date) {
- 
     this.formatteddate = new Date(buyingDate);
     console.log(this.FwheelerForm.value)
     console.log(this.formatteddate)
@@ -132,8 +126,6 @@ export class PolicypageComponent implements OnInit {
     var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
     this.age = Difference_In_Days / 365;
     console.log(this.age)
- 
- 
     if (this.age < 1) {
       alert(
         "Please Enter valid year, minimum age of vehicle should be 1 year"
@@ -152,7 +144,6 @@ export class PolicypageComponent implements OnInit {
       this.finalAmount = amount * 0.1;
     }
   }
- 
  
   onSubmit() {
     this.submitted = true;
@@ -185,4 +176,3 @@ export class PolicypageComponent implements OnInit {
     }
   }
 }
- 

@@ -9,27 +9,7 @@ export class PolicyTable {
     paymentAmount !: number;
     payStatus !: string;
     //application?:[]
-    
     }
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // export class PolicyTable {
 // ApplicationID !: number;
 // PolicyType !: string;

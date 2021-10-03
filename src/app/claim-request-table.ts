@@ -1,5 +1,4 @@
 export class ClaimRequestTable {
-    
     claimRequestId!:number;
     policyNo!:number;
     reason!:string;
@@ -8,8 +7,4 @@ export class ClaimRequestTable {
     claimStatus!:string;
     claimAmount!:number;
     //status!:string;
-    
-   
-
-
 }

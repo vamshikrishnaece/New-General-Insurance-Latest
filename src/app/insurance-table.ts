@@ -1,6 +1,4 @@
 export class InsuranceTable {
-    
-       
         vechicleType!:string ;
         manufacturer!:string ;
         model!:string; 
@@ -10,5 +8,4 @@ export class InsuranceTable {
         engineNo!:string ;
         chassisNo!:string ;
         userId!:number;
-       
 }
