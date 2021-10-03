@@ -47,7 +47,9 @@ const routes: Routes = [
   {path:"adminclaimrequesttable", component:AdminClaimRequestTableComponent},
   {path:"profile", component:UserpoliciesComponent},
   {path:"login/forgot/reset", component:ResetPasswordComponent},
-  {path:"profile/:id",component:UserpolicydetailsComponent}
+  {path:"profile/:id",component:UserpolicydetailsComponent},
+  {path:"claimtable",component:ClaimTableComponent},
+
 ];
 
 @NgModule({

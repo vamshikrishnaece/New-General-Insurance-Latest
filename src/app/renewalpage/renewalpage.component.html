@@ -14,9 +14,17 @@
         <form [formGroup]="renewalform" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="policyno" id="policyno" style="font-size:small;">Policy No<span>*</span></label>
-            <input type="number" size="10" id="policyno" name="policyno" placeholder="Enter Policy Number"
+            <select name="policyNo" id="policyNo" class="form-select form-select-lg mb-3" formControlName="policyno">
+              <option value="" selected>Select One Policy Number</option>
+              <option *ngFor="let i of allpolicies" value={{i.policyNo}}>{{i.policyNo}}</option>
+            </select>
+            <!-- <input type="number" size="10" id="policyno" name="policyno" placeholder="Enter Policy Number"
               [ngClass]="{ 'is-invalid': submitted && f.policyno.errors }" class="form-control"
-              formControlName="policyno" />
+              formControlName="policyno" /> -->
+
+            <!-- <input type="number" placeholder="Policy Number" formControlName="PolicyNo" class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.PolicyNo.errors }"> -->
+
             <div *ngIf="submitted && f.policyno.errors" class="invalid-feedback">
               <div *ngIf="f.policyno.errors.required">Policy Number is required</div>
             </div>
@@ -49,3 +57,55 @@
     </div>
   </div>
 </div>
+
+<!-- <div class="jumbotron">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h5 class="display-2 text-center">Renew Insurance</h5>
+        <br>
+        <hr>
+        <br>
+        <div class="text-danger">
+          {{message}}
+          <h3>{{policystatus}}</h3>
+          <h3>{{text}}</h3>
+        </div>
+        <form [formGroup]="renewalform" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="policyno" id="policyno" style="font-size:small;">Policy No<span>*</span></label>
+            <input type="number" size="10" id="policyno" name="policyno" placeholder="Enter Policy Number"
+              [ngClass]="{ 'is-invalid': submitted && f.policyno.errors }" class="form-control"
+              formControlName="policyno" />
+            <div *ngIf="submitted && f.policyno.errors" class="invalid-feedback">
+              <div *ngIf="f.policyno.errors.required">Policy Number is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mobileno" id="mobileno" style="font-size:small;">Mobile No<span>*</span></label>
+            <input type="number" id="mobileno" name="mobileno" placeholder="Enter Mobile Number"
+              [ngClass]="{ 'is-invalid': submitted && f.mobileno.errors }" class="form-control"
+              formControlName="mobileno" />
+            <div *ngIf="submitted && f.mobileno.errors" class="invalid-feedback">
+              <div *ngIf="f.mobileno.errors.required">Mobile Number is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" id="email" style="font-size:small;">Email<span>*</span></label>
+            <input type="email" id="email" name="email" placeholder="Enter Email" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }" formControlName="email" />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+            </div>
+          </div>
+          <br>
+          <!-- <p>Policy will be available for renewal 90 days before expiry date.
+    Policy with claim will not be available for online renewal.</p> -->
+<!-- <div class="form-group text-center">
+            <button class="btn btn-primary mr-1 btn-lg">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> --> -->

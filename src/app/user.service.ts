@@ -114,4 +114,9 @@ export class UserService {
   {
     return this.client.get<ClaimRequestTable[]>(this.url + "ClaimTables"+"/"+id);
   }
+  GetApprovedClaims()
+  {
+    return this.client.get<ClaimTable[]>(this.url + "ClaimTables");
+  }
+ 
 }
