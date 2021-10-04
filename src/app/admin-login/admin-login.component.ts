@@ -22,6 +22,12 @@ export class AdminLoginComponent implements OnInit {
   }
   get f() { return this.adminloginForm.controls; }
 
+  reloadPage() {
+    setTimeout(() => {
+      window.location.reload();
+    }, 200);
+  }
+
   onSubmit() {
     this.submitted = true;
     // stop here if form is invalid
@@ -30,8 +36,6 @@ export class AdminLoginComponent implements OnInit {
     }
     this.service.AdminLogin(this.adminloginForm.value).subscribe((data)=>
       {
-        console.log("subscribe");
-        console.log(data);
           localStorage.setItem('email',this.adminloginForm.value.email);
           this.service.subject.next(true);
           this.route.navigateByUrl('adminclaimrequesttable');
@@ -39,6 +43,7 @@ export class AdminLoginComponent implements OnInit {
       error=>{this.errormsg="Login Failed";}
       );
     // display form values on success
+    this.reloadPage();
   }
   
   onForgot() {

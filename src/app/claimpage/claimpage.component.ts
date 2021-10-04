@@ -18,12 +18,18 @@ export class ClaimpageComponent implements OnInit {
   errormsg!: string;
   now = Date.now();
   pipe = new DatePipe('en-US');
+  policytable!: PolicyTable;
   message!: string;
   policynumbers!: number[];
   user!: any;
+  text !: string;
+  policystatus !: string;
   userid!: number;
   allpolicies!: PolicyTable[];
   myFormattedDate = this.pipe.transform(this.now, 'yyyy-MM-dd');
+  today = new Date()
+  formatteddate !: any;
+  year !: number;
 
   ngOnInit(): void {
     this.claimForm = this.formBuilder.group({
@@ -38,7 +44,7 @@ export class ClaimpageComponent implements OnInit {
       this.service.GetUserbyEmail(this.user).subscribe((param: Params) => {
         this.userid = param['userId'];
         this.service.GetPoliciesByUserid(this.userid).subscribe((data) => {
-          this.allpolicies = data
+          this.allpolicies = data;
         })
       }
       )
@@ -60,13 +66,27 @@ export class ClaimpageComponent implements OnInit {
       }
       else {
         this.claimForm.value.PolicyNo = parseInt((document.getElementById("PolicyNo") as HTMLInputElement).value);
-        this.service.ClaimRequest(this.claimForm.value).subscribe((data) => { },
-          error => { this.errormsg = "Invalid policy number"; }
-        );
-        this.route.navigate(['/../claimhistory']);
+        this.service.GetPolicyTable(this.claimForm.value.PolicyNo).subscribe((params) => {
+          this.policytable = params
+          this.formatteddate = new Date(this.policytable.buyingDate);
+          var Difference_In_Time = this.today.getTime() - this.formatteddate.getTime();
+          var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
+          this.year = Difference_In_Days / 365;
+            if (this.year > parseInt(this.policytable.period[0])) {
+              this.service.UpdatePolicyStatus(this.claimForm.value.PolicyNo, "Expired", this.policytable).subscribe();
+              alert("Your policy is expired")
+              this.route.navigateByUrl("renew/" + this.policytable.applicationId + "/" + this.policytable.insuranceEstimateAmount) 
+            }
+          else {
+            console.log("Active")
+            this.service.ClaimRequest(this.claimForm.value).subscribe(            
+            );
+            this.route.navigate(['/../claimhistory']);
+          }
+        });
       }
-    },
-      error => { this.errormsg = "Invalid policy mobile numer"; }
-    );
+    });
+
+
   }
 }

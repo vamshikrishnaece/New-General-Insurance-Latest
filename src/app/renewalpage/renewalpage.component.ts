@@ -24,6 +24,8 @@ export class RenewalpageComponent implements OnInit {
   submitted = false;
   user!:any;
   userid!:number;
+  appid!:number;
+  estimatedamount!:number;
   allpolicies!:PolicyTable[]
  
   ngOnInit(): void {
@@ -74,15 +76,10 @@ export class RenewalpageComponent implements OnInit {
           var Difference_In_Time = this.today.getTime() - this.formatteddate.getTime();
           var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
           this.year = Difference_In_Days / 365;
-          console.log(this.formatteddate)
-          console.log(this.today)
-          console.log(this.year)
-          console.log(this.policytable.applicationId)
-          console.log(Difference_In_Days)
           if (Difference_In_Days > -10) {
             if (this.year > parseInt(this.policytable.period[0])) {
               this.service.UpdatePolicyStatus(this.renewalform.value.policyno, "Expired", this.policytable).subscribe();
-              this.route.navigateByUrl("renew/" + this.policytable.applicationId)
+              this.route.navigateByUrl("renew/" + this.policytable.applicationId + "/" + this.policytable.insuranceEstimateAmount)
             }
             else {
               this.policystatus = "Your policy is active";

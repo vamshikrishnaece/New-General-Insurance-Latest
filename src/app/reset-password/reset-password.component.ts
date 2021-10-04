@@ -47,10 +47,8 @@ export class ResetPasswordComponent implements OnInit {
     this.service.GetUserbyEmail(this.resetform.value.email).subscribe((data)=>{
       this.user = data;
       this.user.userId = data.userId;
-      console.log("HI");
       this.service.UpdateUserPassword(this.user.userId, this.resetform.value.password, this.user).subscribe();
-      console.log("Done");
-      this.route.navigate(['/../'])
+      this.route.navigate(['/../login'])
     },
     error=>{this.errormsg = "Invalid email"}
     )

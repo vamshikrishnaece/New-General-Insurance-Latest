@@ -52,7 +52,7 @@ export class AdminClaimRequestTableComponent implements OnInit {
   reloadPage() {
     setTimeout(() => {
       window.location.reload();
-    }, 1000);
+    }, 10);
   }
 
   buttonclick(id: number, status: string, claimamount: number) {
@@ -60,22 +60,16 @@ export class AdminClaimRequestTableComponent implements OnInit {
     for (let i = 0; i < this.claimrequesttabledata.length; i++) {
       if (this.claimrequesttabledata[i].claimRequestId == id) {
         this.claimrequestdata = this.claimrequesttabledata[i];
-        console.log(this.claimrequestdata)
       }
     }
     var amount =
       ((document.getElementById("amount") as HTMLInputElement).value);
     this.claimrequestdata.claimAmount = parseInt(amount)
-    console.log(amount)
-    console.log(this.claimrequestdata)
     this.service.UpdateClaimStatus(id, status, this.claimrequestdata).subscribe((data) => {
-      console.log(data);
     });
-    console.log(this.claimtableform.value)
     this.claimtableform.value.claimRequestId = id;
-    console.log(this.claimtableform.value)
-    this.service.ClaimTableDetails(this.claimtableform.value).subscribe((data) => {
-      console.log(data);
+    if(status == "Approved")
+      this.service.ClaimTableDetails(this.claimtableform.value).subscribe((data) => {
     });
     console.log(this.claimtable)
     this.reloadPage();

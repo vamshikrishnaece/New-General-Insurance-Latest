@@ -71,8 +71,6 @@ export class PolicytypeComponent implements OnInit {
         else
           this.policyPlanForm.value.PaymentAmount = this.estimatedamount + (this.estimatedamount*0.3)
       }
-      console.log(this.policyPlanForm.value);
-      console.log(this.policyPlanForm.value.PaymentAmount)
       this.route.navigateByUrl("buy/" + this.policyPlanForm.value.PaymentAmount);
       this.service.BuyPolicyType(this.policyPlanForm.value).subscribe((data)=>
       {

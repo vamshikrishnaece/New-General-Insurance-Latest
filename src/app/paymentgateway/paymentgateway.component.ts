@@ -31,6 +31,7 @@ export class PaymentgatewayComponent implements OnInit {
 
   submitform() {
     console.log(this.paymentform.value);
+    alert("Your payment is successful")
     this.route.navigate(['/..'])
   }
 }

@@ -26,7 +26,7 @@ export class UserpolicydetailsComponent implements OnInit {
   age !: number;
   price !: number;
   premiumprice !: number;
-
+  premium !: number;
 
   constructor(private activatedroute: ActivatedRoute, private service: UserService, private route: Router) {
   }
@@ -36,8 +36,7 @@ export class UserpolicydetailsComponent implements OnInit {
     console.log(this.policyNoFromRoute)
     this.service.GetPolicyTable(this.policyNoFromRoute).subscribe((data) => {
       this.policyTable = data;
-      console.log("Policytable")
-      console.log(data)
+      this.premium = data.paymentAmount;
       this.service.GetInsuranceData(data.applicationId).subscribe((data) => {
         this.insuranceTable = data;
         this.model = data.manufacturer
@@ -106,12 +105,7 @@ export class UserpolicydetailsComponent implements OnInit {
 
   calculatePremium(price: number) {
     
-    if (this.age < 1) {
-      alert(
-        "Please Enter valid year, minimum age of vehicle should be 1 year"
-      );
-    }
-    else if (this.age == 1) {
+    if (this.age >= 0) {
       this.premiumprice = price * 0.5;
     }
     else if (this.age > 1 && this.age < 3) {
