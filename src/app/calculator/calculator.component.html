@@ -17,10 +17,10 @@
             <h2 class="display-5 text-center">Premium Calculator for 2 Wheeler</h2>
             <br>
             <form [formGroup]="premium2Form" class="form-group">
-              <label>Please select Bike Manufacturer</label>
+              <label for="bike_Model">Please select Bike Manufacturer</label>
               <select name="bikemodel" id="bikemodel" formControlName="bike_Model"
                 class="form-select form-select-lg mb-3">
-                <option value="" selected>Select your bike manufacterer</option>
+                <option value='default' selected >Select your bike manufacterer</option>
                 <option value="Hero Motocorp">Hero Motocorp</option>
                 <option value="Honda Motorcycle and Scooter">Honda Motorcycle and Scooter</option>
                 <option value="TVS Motor">TVS Motor</option>
@@ -64,12 +64,12 @@
           </div>
         </form>
         <div *ngIf="premiumcalculator==true" class="text-center">
-          <h3>
-            <kbd>Your Premium Insurance Amount is
+          <!-- <h3>
+            Your Premium Insurance Amount is
               {{premiumprice}}</kbd>
-          </h3>
+          </h3> -->
           <h3>Your Premium Amount is</h3>
-          <h3>{{premiumprice}}</h3>
+          <kbd>{{premiumprice}}</kbd>
         </div>
         <br>
         <a routerLink="" style="float: right;"><button class="btn btn-success">Back Home</button></a><br>

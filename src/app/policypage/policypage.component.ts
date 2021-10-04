@@ -126,12 +126,8 @@ export class PolicypageComponent implements OnInit {
     var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
     this.age = Difference_In_Days / 365;
     console.log(this.age)
-    if (this.age < 1) {
-      alert(
-        "Please Enter valid year, minimum age of vehicle should be 1 year"
-      );
-    }
-    else if (this.age == 1) {
+
+    if (this.age >= 0) {
       this.finalAmount = amount * 0.5;
     }
     else if (this.age > 1 && this.age < 3) {

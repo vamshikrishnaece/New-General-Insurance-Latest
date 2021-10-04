@@ -65,8 +65,8 @@ export class RenewalpageComponent implements OnInit {
     }
  
     var contact = this.f.mobileno.value;
-    this.service.GetContact(this.renewalform.value.policyno).subscribe((data) => {
-      if (data[0] != contact) {
+    this.service.GetContact(this.renewalform.value.policyno).subscribe((params :Params) => {
+      if (params[0].contactNo != contact) {
         this.message = "Invalid Policy Number or Mobile Number";
       }
       else {

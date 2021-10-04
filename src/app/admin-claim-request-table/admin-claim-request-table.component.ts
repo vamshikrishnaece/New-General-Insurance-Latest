@@ -52,7 +52,7 @@ export class AdminClaimRequestTableComponent implements OnInit {
   reloadPage() {
     setTimeout(() => {
       window.location.reload();
-    }, 10);
+    }, 1000);
   }
 
   buttonclick(id: number, status: string, claimamount: number) {
@@ -71,8 +71,15 @@ export class AdminClaimRequestTableComponent implements OnInit {
     if(status == "Approved")
       this.service.ClaimTableDetails(this.claimtableform.value).subscribe((data) => {
     });
-    console.log(this.claimtable)
-    this.reloadPage();
-  }
-  //reload page
-}
+    else
+    {
+      console.log(this.claimrequestdata.policyNo)
+      this.service.GetContact(this.claimrequestdata.policyNo).subscribe((params:Params)=>{
+      this.service.ContactUs(params[0].email, "Your claim with policy number " + this.claimrequestdata.policyNo + 
+      " and claim request id " + this.claimrequestdata.claimRequestId + " has been disapproved").subscribe((data)=>{
+
+      })
+      })
+    }
+    this.reloadPage()
+  }}

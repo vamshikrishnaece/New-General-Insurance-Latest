@@ -20,6 +20,7 @@ export class PolicytypeComponent implements OnInit {
   myFormattedDate  = this.pipe.transform(this.now, 'yyyy-MM-dd');
   estimatedamount !: number;
   PaymentAmount!: number;
+  userAmount!:number;
 
   constructor(private formBuilder: FormBuilder, private activatedroute : ActivatedRoute, 
     
@@ -29,6 +30,7 @@ export class PolicytypeComponent implements OnInit {
   ngOnInit(): void {
     this.appid = parseInt(this.activatedroute.snapshot.params['appid'])
     this.estimatedamount = parseInt(this.activatedroute.snapshot.params['finalAmount'])
+    this.userAmount=this.estimatedamount;
     this.policyPlanForm = this.formBuilder.group({
       ApplicationID : [this.appid], //cannot convert json obj to system.nullable something
       PolicyType : [],
@@ -39,6 +41,7 @@ export class PolicytypeComponent implements OnInit {
       PaymentAmount : [],
       PayStatus : ["No"],
     });
+    
   }
   get f() { return this.policyPlanForm.controls; }
   
@@ -71,7 +74,7 @@ export class PolicytypeComponent implements OnInit {
         else
           this.policyPlanForm.value.PaymentAmount = this.estimatedamount + (this.estimatedamount*0.3)
       }
-      this.route.navigateByUrl("buy/" + this.policyPlanForm.value.PaymentAmount);
+      this.route.navigateByUrl("buy/" + this.userAmount);
       this.service.BuyPolicyType(this.policyPlanForm.value).subscribe((data)=>
       {
       });

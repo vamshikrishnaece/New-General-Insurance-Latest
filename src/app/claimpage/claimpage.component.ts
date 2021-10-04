@@ -60,8 +60,8 @@ export class ClaimpageComponent implements OnInit {
     if (this.claimForm.invalid) {
       return;
     }
-    this.service.GetContact(this.claimForm.value.PolicyNo).subscribe((data) => {
-      if (data[0] != contact) {
+    this.service.GetContact(this.claimForm.value.PolicyNo).subscribe((params :Params) => {
+      if (params[0].contactNo != contact) {
         this.message = "Invalid Policy Number or Mobile Number";
       }
       else {
@@ -81,7 +81,7 @@ export class ClaimpageComponent implements OnInit {
             console.log("Active")
             this.service.ClaimRequest(this.claimForm.value).subscribe(            
             );
-            this.route.navigate(['/../claimhistory']);
+            this.route.navigate(['/../profile']);
           }
         });
       }

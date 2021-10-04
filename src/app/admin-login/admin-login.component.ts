@@ -25,7 +25,7 @@ export class AdminLoginComponent implements OnInit {
   reloadPage() {
     setTimeout(() => {
       window.location.reload();
-    }, 200);
+    }, 1000);
   }
 
   onSubmit() {
