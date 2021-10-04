@@ -44,15 +44,15 @@ namespace GeneralInsurance.Controllers
             //    Select(y => new { y.PolicyNo, y.RequestCreatedDate, y.PolicyNoNavigation.Application.PolicyTable
             //    , y.ClaimStatus }));)
 
-            //////            var claim = from c in _context.ClaimRequestTable
-            //////                        join ct in _context.ClaimTable on c.ClaimRequestId equals ct.ClaimRequestId
-            //////                        where
-            //////c.PolicyNoNavigation.Application.UserId == id
-            //////                        select new { ct.ClaimAmount, c.RequestCreatedDate, c.PolicyNo, c.ClaimStatus, c.ClaimRequestId };
-            //////            return Ok(claim);
+            var claim = from c in _context.ClaimRequestTable
+                        join ct in _context.ClaimTable on c.ClaimRequestId equals ct.ClaimRequestId
+                        where
+c.PolicyNoNavigation.Application.UserId == id
+                        select new { ct.ClaimAmount, c.RequestCreatedDate, c.PolicyNo, c.ClaimStatus, c.ClaimRequestId };
+            return Ok(claim);
 
 
-            return Ok(_context.ClaimRequestTable.Where(x => x.PolicyNoNavigation.Application.UserId == id));
+           // return Ok(_context.ClaimRequestTable.Where(x => x.PolicyNoNavigation.Application.UserId == id));
 
 
             //if (claimTable == null)

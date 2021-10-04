@@ -30,6 +30,7 @@ export class ClaimpageComponent implements OnInit {
   today = new Date()
   formatteddate !: any;
   year !: number;
+  show=false;
 
   ngOnInit(): void {
     this.claimForm = this.formBuilder.group({
@@ -75,18 +76,32 @@ export class ClaimpageComponent implements OnInit {
             if (this.year > parseInt(this.policytable.period[0])) {
               this.service.UpdatePolicyStatus(this.claimForm.value.PolicyNo, "Expired", this.policytable).subscribe();
               alert("Your policy is expired")
-              this.route.navigateByUrl("renew/" + this.policytable.applicationId + "/" + this.policytable.insuranceEstimateAmount) 
+              this.policystatus= "Your policy is Expired";
+              //this.route.navigateByUrl("renew/" + this.policytable.applicationId + "/" + this.policytable.insuranceEstimateAmount) 
             }
           else {
             console.log("Active")
             this.service.ClaimRequest(this.claimForm.value).subscribe(            
             );
-            this.route.navigate(['/../profile']);
+            this.policystatus= "Your policy is active";
+            //this.route.navigate(['/../profile']);
           }
         });
       }
     });
 
 
+  }
+  check()
+  {
+    this.show=true;
+
+  }
+  renew()
+  {
+    if(this.policystatus == "Your policy is Expired")
+      this.route.navigateByUrl("renew/" + this.policytable.applicationId + "/" + this.policytable.insuranceEstimateAmount)
+    else
+      this.route.navigate(['/../profile']);
   }
 }

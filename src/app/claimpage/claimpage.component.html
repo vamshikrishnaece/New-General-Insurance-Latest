@@ -31,7 +31,22 @@
             </select>
           </div>
           <br>
-          <button type="submit" class="btn btn-primary">Claim</button>
+          <!-- <button type="submit" class="btn btn-primary">Claim</button> -->
+
+
+          <button class="btn btn-primary mr-1 btn-lg" (click)="check()">Check</button>
+          <div *ngIf="show==true" class="form-group text-center">
+            <h3>{{policystatus}}</h3>
+            <br>
+            <div *ngIf="policystatus == 'Your policy is Expired'">
+              <button class="btn btn-primary mr-1 btn-lg" (click)="renew()">Renew</button>
+            </div>
+            <div *ngIf="policystatus == 'Your policy is active'">
+              <button class="btn btn-primary mr-1 btn-lg" (click)="renew()">Claim</button>
+            </div>
+          </div>
+
+
         </form>
         <br>
         <a routerLink="" style="float: right;"><button class="btn btn-success">Back Home</button></a>

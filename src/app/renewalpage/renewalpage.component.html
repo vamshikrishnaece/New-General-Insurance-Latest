@@ -8,7 +8,7 @@
         <br>
         <div class="text-danger">
           {{message}}
-          <h3>{{policystatus}}</h3>
+          
           <h3>{{text}}</h3>
         </div>
         <form [formGroup]="renewalform" (ngSubmit)="onSubmit()">
@@ -49,8 +49,16 @@
           <br>
           <!-- <p>Policy will be available for renewal 90 days before expiry date.
     Policy with claim will not be available for online renewal.</p> -->
-          <div class="form-group text-center">
-            <button class="btn btn-primary mr-1 btn-lg">Submit</button>
+          <button class="btn btn-primary mr-1 btn-lg" (click)="check()">Check</button>
+          <div *ngIf="show==true" class="form-group text-center">
+            <h3>{{policystatus}}</h3>
+            <br>
+            <div *ngIf="policystatus == 'Your policy is Expired'">
+              <button class="btn btn-primary mr-1 btn-lg" (click)="renew()">Renew</button>
+            </div>
+            <div *ngIf="policystatus == 'Your policy is active'">
+              <button class="btn btn-primary mr-1 btn-lg" (click)="renew()">Back</button>
+            </div>
           </div>
         </form>
       </div>

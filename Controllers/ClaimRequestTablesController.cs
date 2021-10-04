@@ -30,7 +30,7 @@ namespace GeneralInsurance.Controllers
 
         // GET: api/ClaimRequestTables/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ClaimRequestTable>> GetClaimRequestTable(int id)
+        public async Task<ActionResult<UserTable>> GetClaimRequestTable(int id)
         {
             //            var claimRequestTable = await _context.ClaimRequestTable.FindAsync(id);
             var claimRequestTable = await _context.PolicyTable.FindAsync(id);
@@ -44,7 +44,7 @@ namespace GeneralInsurance.Controllers
 
                 //return Ok(_context.UserTable.Select(x => x.InsuranceTable.Select(y => y.PolicyTable.Where(z => z.PolicyNo == id).Select(z => new { x.ContactNo }))));
                 //return Ok(_context.UserTable.Where(x => x.InsuranceTable.Where(y => y.PolicyTable.where(z => z.PolicyNo == id).Select(z => new { x.ContactNo }))));
-                return Ok(_context.PolicyTable.Where(x => x.PolicyNo == id).Select(y => y.Application.User.ContactNo));
+                return Ok(_context.PolicyTable.Where(x => x.PolicyNo == id).Select(y => y.Application.User));
             }
 
         }

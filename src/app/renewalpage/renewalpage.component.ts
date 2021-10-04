@@ -1,4 +1,5 @@
 import { DatePipe } from '@angular/common';
+import { identifierModuleUrl } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Params, Router } from '@angular/router';
@@ -27,6 +28,7 @@ export class RenewalpageComponent implements OnInit {
   appid!:number;
   estimatedamount!:number;
   allpolicies!:PolicyTable[]
+  show=false;
  
   ngOnInit(): void {
  
@@ -77,11 +79,13 @@ export class RenewalpageComponent implements OnInit {
           var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
           this.year = Difference_In_Days / 365;
           if (Difference_In_Days > -10) {
+
             if (this.year > parseInt(this.policytable.period[0])) {
               this.service.UpdatePolicyStatus(this.renewalform.value.policyno, "Expired", this.policytable).subscribe();
-              this.route.navigateByUrl("renew/" + this.policytable.applicationId + "/" + this.policytable.insuranceEstimateAmount)
+              this.policystatus = "Your policy is Expired"; 
             }
             else {
+              
               this.policystatus = "Your policy is active";
             }
           }
@@ -91,6 +95,18 @@ export class RenewalpageComponent implements OnInit {
         });
       }
     });
+  }
+  check()
+  {
+    this.show=true;
+
+  }
+  renew()
+  {
+    if(this.policystatus == "Your policy is Expired")
+      this.route.navigateByUrl("renew/" + this.policytable.applicationId + "/" + this.policytable.insuranceEstimateAmount)
+    else
+      this.route.navigate([''])
   }
 }
 
